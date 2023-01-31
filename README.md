@@ -8,6 +8,7 @@ Responsive UI로 작업 부탁
 ## 개발팀 
 ### 전체 플로우 참고 레퍼런스
 https://aptos.dev/tutorials/build-e2e-dapp/e2e-dapp-index 
+React Tab 구현: https://prod.velog.io/@fejigu/React-Tab-Component-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0 
 ### 코드 받아서 실행하는 방법 : 모두 npm 통일
 (1) npm install 
 (2) npm start 
