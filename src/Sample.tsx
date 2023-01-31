@@ -1,11 +1,10 @@
-import React from 'react';
+import * as React from 'react';
+import Button from '@mui/material/Button';
 
-const Product = () => {
-    return (
-        <>
-            <h3>라우팅 샘플</h3>
-        </>
-    );
+export default function Sample() {
+  return (
+    <div>
+      <Button variant="contained">Material UI</Button>
+    </div>
+  );
 }
-
-export default Product;

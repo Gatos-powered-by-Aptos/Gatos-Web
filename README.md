@@ -2,6 +2,7 @@
 React TS MUI 
 react-router-dom
 Responsive UI
+Aptos TypeScript UI 
 
 ## 개발팀 
 ### 코드 받아서 실행하는 방법 : 모두 npm 통일
@@ -21,6 +22,7 @@ commit 메시지 작업 내용 잘 반영하고 작업 단위별로 commit 추�
 https://aptos.dev/tutorials/build-e2e-dapp/add-wallet-support 
 - Petra Wallet 지원 
 - Wallet Adapter만 Ant Design으로 작업
+- Account Switch의 경우 상태관리가 잘 되고 있음
 
 ## Getting Started with Create React App
 
