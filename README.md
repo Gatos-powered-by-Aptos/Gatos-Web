@@ -1,8 +1,9 @@
 # Gatos UI 
 React TS MUI 
 react-router-dom
-Responsive UI
-Aptos TypeScript UI 
+Aptos TypeScript SDK
+
+Responsive UI로 작업 부탁
 
 ## 개발팀 
 ### 전체 플로우 참고 레퍼런스
