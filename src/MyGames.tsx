@@ -12,6 +12,9 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import Badge from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
 
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design"; 
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
@@ -19,10 +22,16 @@ import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
 import { AptosClient } from "aptos"; 
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { useState, useEffect } from "react";
+import { Height } from '@mui/icons-material';
 
 const NODE_URL = "https://fullnode.devnet.aptoslabs.com";
 const client = new AptosClient(NODE_URL);
 
+const SmallAvatar = styled(Avatar)(({ theme }) => ({
+  width: 20,
+  height: 20,
+  border: `2px solid ${theme.palette.background.paper}`,
+}));
 
 export default function Explorer() {
 
@@ -48,11 +57,12 @@ export default function Explorer() {
         }
       };
       
+      
   return (
     <div>
     <Box sx={{ flexGrow: 1 }}>
       <Container maxWidth="xl">
-      <AppBar position="static" >
+      <AppBar position="static">
         <Toolbar>
           <IconButton
             size="large"
@@ -63,7 +73,7 @@ export default function Explorer() {
           >
             <MenuIcon/>
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}></Typography>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, letterSpacing: 17 }}>GATOS</Typography>
           <WalletSelector />
         </Toolbar>
       </AppBar>
@@ -76,11 +86,15 @@ export default function Explorer() {
       <Box display="flex"
       alignItems="center"
       justifyContent="center">
-      <Avatar 
-      alt="Remy Sharp" 
-      src="/static/images/avatar/1.jpg"
-      sx={{width: 100, height: 100}}
-       />
+      <Badge
+        overlap="circular"
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        badgeContent={
+          <SmallAvatar sx={{fontSize: 1}} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+        }
+      >
+        <Avatar sx={{width: 100, height: 100}} alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+      </Badge>
       </Box>
       <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} align="center">User name</Typography>
       <br></br>
@@ -88,14 +102,33 @@ export default function Explorer() {
       </Container>
       <br></br>
 
+      <Container maxWidth="xl">
+        <Box display="flex"
+          alignItems="center"
+          justifyContent="center"
+          sx={{flexDirection: 'row'}}>
+          <Box display="flex"
+          alignItems="center"
+          justifyContent="center"
+          sx={{flexDirection: 'column',}}>
+            <WorkspacePremiumOutlinedIcon sx={{fontSize: 60}} />
+            <Typography variant="h6" component="div" sx={{ }} align="center">Gatos Level</Typography>
+            
+          </Box>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 0.05 }}></Typography>
+          <Typography variant="h3" sx={{ }} align="center" >32</Typography>
+        </Box>
+        </Container>
+
       <br></br>
       <br></br>
       <br></br>
 
-      <Container maxWidth="xl"><h3>Recent Played</h3></Container>
+      
       
       
       <Container maxWidth="xl">
+      <h3>Recent Played</h3>
       <Card sx={{ }}>
       <CardMedia
         sx={{ height: 200 }}

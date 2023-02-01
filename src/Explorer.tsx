@@ -228,7 +228,7 @@ export default function Explorer() {
           >
             <MenuIcon/>
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}></Typography>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, letterSpacing: 17 }}>GATOS</Typography>
           <WalletSelector />
         </Toolbar>
       </AppBar>
