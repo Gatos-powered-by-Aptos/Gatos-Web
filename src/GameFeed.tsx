@@ -4,9 +4,19 @@ import Button from '@mui/material/Button';
 import AppBar from '@mui/material/AppBar';
 import { Stack } from '@mui/system';
 import Tabs from '@mui/material/Tabs';
+import Avatar from '@mui/material/Avatar';
+
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import Typography from '@mui/material/Typography';
+
 
 import { ReactElement, useEffect, useState, useRef } from 'react';
 import { IconButton, Toolbar } from '@mui/material';
+
+// 유진아 위에 navbar은 연우가 만들었고 어차피 wallet adapter 갔다 쓸거여서 밑에 내용 먼저 만들면 될 것 같아!
 
 export const NavBar = () => {
     return (
@@ -120,13 +130,38 @@ export default function GameFeed() {
     <div>
     <AppBar position='static'>
             <Toolbar>
-                <IconButton></IconButton>
+                <IconButton>냅두기</IconButton>
                 <Stack direction='row' spacing={2}>
                     <Button variant='contained'>Connect Wallet</Button>
                 </Stack>
             </Toolbar>
-        </AppBar>
-    <Button variant="contained">GameFeed</Button>
+    </AppBar>
+    <Avatar 
+      alt="Fox" 
+      src="/static/images/Fox_2178.png" 
+      sx = {{ width: '100%', height: '%100%' }}
+    />
+    <Typography 
+      variant="h4" 
+      component="h4"
+      
+    >
+      Game Name
+    </Typography>
+    <Typography 
+      variant="h4" 
+      component="h4"
+      
+    >
+      Overview
+    </Typography>
+    <Typography 
+      variant="h4" 
+      component="h4"
+      
+    >
+      Description 
+    </Typography>
     </div>
   );
 }
