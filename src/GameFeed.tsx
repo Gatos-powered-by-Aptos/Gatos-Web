@@ -81,8 +81,6 @@ const GameFeed = (): ReactElement => {
         >
           Description
         </Typography>
-
-        
         
         <div ref={goodsTabs[0].element}>
         News로 옵니다
