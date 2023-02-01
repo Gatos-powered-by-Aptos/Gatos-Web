@@ -5,7 +5,6 @@ import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
 // Interacting with Aptos
 import { AptosClient } from "aptos"; 
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
-
 import { useState, useEffect } from "react";
 
 const NODE_URL = "https://fullnode.devnet.aptoslabs.com";

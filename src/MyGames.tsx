@@ -19,7 +19,7 @@ import CardMedia from '@mui/material/CardMedia';
 export default function Explorer() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Container maxWidth="sm">
+      <Container maxWidth="xl">
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -40,7 +40,7 @@ export default function Explorer() {
       <br></br>
       <br></br>
       
-      <Container maxWidth="sm">
+      <Container maxWidth="xl">
       <Box display="flex"
       alignItems="center"
       justifyContent="center">
@@ -60,10 +60,10 @@ export default function Explorer() {
       <br></br>
       <br></br>
 
-      <Container maxWidth="sm"><h3>Recent Played</h3></Container>
+      <Container maxWidth="xl><h3>Recent Played</h3></Container>
       
       
-      <Container maxWidth="sm">
+      <Container maxWidth="xl">
       <Card sx={{ }}>
       <CardMedia
         sx={{ height: 200 }}
@@ -87,8 +87,8 @@ export default function Explorer() {
     </Container>
       <br></br>
 
-    <Container maxWidth="sm">
-      <Card sx={{ }}>
+    <Container maxWidth="xl">
+      <Card>
       <CardMedia
         sx={{ height: 200 }}
         image="/static/images/cards/contemplative-reptile.jpg"
@@ -110,8 +110,6 @@ export default function Explorer() {
     </Card> 
     </Container>
       <br></br>
-
-
     </Box>
     
   );
