@@ -5,6 +5,7 @@ import Wallet from './Wallet'
 import NotFound from './NotFound'
 import Sample from './Sample'
 import GameFeed from './GameFeed'
+import Explorer from './Explorer';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
 					<Route path="/" element={<Sample />}></Route>
 					<Route path="/wallet/*" element={<Wallet />}></Route>
 					<Route path="/gamefeed/*" element={<GameFeed />}></Route>
+					<Route path="/explorer/*" element={<Explorer />}></Route>
 					{/* 상단에 위치하는 라우트들의 규칙을 모두 확인, 일치하는 라우트가 없는경우 처리 */}
 					<Route path="*" element={<NotFound />}></Route>
 				</Routes>
