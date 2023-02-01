@@ -1,25 +1,37 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Button from '@mui/material/Button';
 
 import AppBar from '@mui/material/AppBar';
 import { Stack } from '@mui/system';
-import Avatar from '@mui/material/Avatar';
 import MenuIcon from '@mui/icons-material/Menu';
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design";
 import CssBaseline from '@mui/material/CssBaseline';
-import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import { borders } from '@mui/system';
-
+import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
-
+import StarBorderRoundedIcon from '@mui/icons-material/StarBorderRounded';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Fab from '@mui/material/Fab';
+import Avatar from '@mui/material/Avatar';
+import { deepOrange, deepPurple } from '@mui/material/colors';
+import Paper from '@mui/material/Paper';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TablePagination from '@mui/material/TablePagination';
+import TableRow from '@mui/material/TableRow';
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Typography from '@mui/material/Typography';
-
 
 import { ReactElement } from 'react';
 import { IconButton, Tab, Toolbar } from '@mui/material';
@@ -30,8 +42,116 @@ import useMoveScroll from './hooks/useMoveScroll';
 // game feed 주소 뒤에 붙는 게임 명으로 라우팅해야됨 - 주원 
 
 
+
+
+interface TabPanelProps {
+  children?: React.ReactNode;
+  index: number;
+  value: number;
+}
+function TabPanel(props: TabPanelProps) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+function a11yProps(index: number) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
+const bull = (
+  <Box
+    component="span"
+    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+  >
+    •
+  </Box>
+);
+
+const card = (
+  <React.Fragment>
+    <CardContent>
+      <Avatar sx={{ bgcolor: deepOrange[500], mb: 1.5 }}>N</Avatar>
+      <Typography sx={{ fontSize: 18 }} color="text.primary" gutterBottom>
+        Username001
+      </Typography>
+      <Typography sx={{ fontSize: 15, mb: 1.5 }} color="text.secondary">
+        2/1/2023
+      </Typography>
+      <Typography variant="body1">
+        Crazy game
+      </Typography>
+    </CardContent>
+    <CardActions>
+      <Button size="small">Learn More</Button>
+    </CardActions>
+  </React.Fragment>
+);
+
+interface Column {
+  id: 'Number' | 'Username' | 'Level';
+  label: string;
+  minWidth?: number;
+  align?: 'right';
+  format?: (value: number) => string;
+}
+const columns: readonly Column[] = [
+  { id: 'Number', label: '#', minWidth: 5 },
+  { id: 'Username', label: 'Username', minWidth: 150 },
+  {
+    id: 'Level',
+    label: 'Gatos Level',
+    minWidth: 50,
+    align: 'right',
+    format: (value: number) => value.toLocaleString('en-US'),
+  },
+];
+interface Data {
+  Number: number;
+  Username: string;
+  Level: number;
+}
+
+function createData(
+  Number: number,
+  Username: string,
+  Level: number,
+): Data {
+  return { Number, Username, Level };
+}
+const rows = [
+  createData(1, 'Username001', 813),
+  createData(2, 'Username002', 714),
+  createData(3, 'Username003', 701),
+  createData(4, 'Username004', 679),
+  createData(5, 'Username005', 614),
+  createData(6, 'Username006', 523),
+  createData(7, 'Username007', 505),
+  createData(8, 'Username008', 411),
+  createData(9, 'Username009', 323),
+  createData(10, 'Username010', 214)
+];
+
 const GameFeed = (): ReactElement => {
 
+  /*
   const goodsTabs = {
     0: useMoveScroll('News'),
     1: useMoveScroll('Reviews'),
@@ -40,17 +160,36 @@ const GameFeed = (): ReactElement => {
     length: 4,
   };
 
-  {Array.from(goodsTabs).map((tab, index) => {
+  Array.from(goodsTabs).map((tab, index) => {
     console.log(tab.name, index)
-  })}
+  })
 
   const tapRef = useRef<HTMLDivElement>(null);
   
-
   const onTapClick = () => {
     tapRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
-  
+  */
+
+  const [value, setValue] = React.useState(0);
+
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
+
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  const handleChangePage = (event: unknown, newPage: number) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setRowsPerPage(+event.target.value);
+    setPage(0);
+  };
+
+
 
   return (
     <>
@@ -64,7 +203,7 @@ const GameFeed = (): ReactElement => {
             sx={{ mr: 2 }}>
               <MenuIcon/>
             </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}> G A T O S</Typography>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 1, letterSpacing: 10 }}> G A T O S</Typography>
           <WalletSelector />
           </Toolbar>
         </AppBar>
@@ -77,105 +216,185 @@ const GameFeed = (): ReactElement => {
       <br></br>
       <br></br>
 
-      <Box sx={{ borderRadius: 50, bgcolor: '#cfe8fc', height: '50vh', width: '44%', margin: 'auto' }}>Game Image</Box>
+      <Box sx={{ borderRadius: '50%', bgcolor: '#cfe8fc', height: '70vh', width: '70vh', mx: 'auto' }}></Box>
 
       <br />
-
-      <Chip sx={{ borderRadius: 1 }} label="#Metaverse" />
-
-      <br />
-      <br />
-
-      <Typography variant="h5">
-        Ratings
-      </Typography>;
-      <br></br>
-      
-
-        <Typography
+      <Box sx={{ mx: 'auto' }}>
+      <Typography
+          textAlign="center"
           variant="h4"
           component="h4"
-
-        >
+          >
           Game Name
         </Typography>
-        <br></br>
+      </Box>
       
-        <Typography
-          variant="h4"
-          component="h4"
+      <br />
 
-        >
-          Overview
-        </Typography>
+      <div>
+        <Stack direction="row" spacing={1} style=
+                    {{ justifyContent: 'center' }}>
+          <Chip sx={{ borderRadius: 1, height: '6vh' }} label="#Metaverse" size="small" />
+        </Stack>
+      </div>
+            
+      <br />
+      <br />
+      <br />
+
+      <Stack direction="row" spacing={1} style= {{ justifyContent: 'center' }}>
+          <Box>
+          <StarBorderRoundedIcon sx={{ fontSize: '70px' }} />
+          <Typography component="div" sx={{ flexGrow: 1, fontsize: '10px' }}>Ratings</Typography>
+          </Box>
+          <Typography variant='h6' component="div" sx={{ flexGrow: 1, fontSize: '25px' }}>5/5</Typography>
+
+          <Box>
+          <PeopleAltOutlinedIcon sx={{ fontSize: '70px' }} />
+          <Typography component="div" sx={{ flexGrow: 1, fontsize: '10px' }}>Participants</Typography>
+          </Box>
+          <Typography variant='h6' component="div" sx={{ flexGrow: 1, fontSize: '25px' }}>5/5</Typography>
+      </Stack>
+
+      <br />
+      <br />
+
+        <Container maxWidth="xl"><h2>Overview</h2></Container>
+
         <Typography
-          variant="h4"
+          variant="body1"
           component="h4"
+          sx={{ display: 'block', paddingLeft: 5, paddingRight: 5 }}
         >
-          Description
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
         </Typography>
         
-        
-        <button onClick={onTapClick}>News</button>
-        <button onClick={onTapClick}>User Reviews</button>
-        <button onClick={onTapClick}>Leaderboards</button>
-        <button onClick={onTapClick}>Data Dashboards</button>
+        <br />
 
-        <div ref={goodsTabs[0].element}>ddddd</div>
-        <p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
+      <Box sx={{ width: '100%' }}>
 
-반대의 경우도 마찬가지이다.
+      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+        <Tabs value={value} onChange={handleChange} aria-label="Game Feed Tabs" centered>
+          <Tab label="News" {...a11yProps(0)} />
+          <Tab label="User Reviews" {...a11yProps(1)} />
+          <Tab label="Leaderboards" {...a11yProps(2)} />
+          <Tab label="Data Dashboards" {...a11yProps(3)} />
+        </Tabs>
+      </Box>
 
-포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
-        <div ref={goodsTabs[1].element}>fffff</div>
-        <p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
+      <TabPanel value={value} index={0}>
+      <Container maxWidth="xl"><h2>Trending Community News</h2></Container>
 
-반대의 경우도 마찬가지이다.
+<Box>
+    <Container maxWidth="xl">
+      <Card>
+      <CardMedia
+        sx={{ height: 200 }}
+        image="/static/images/cards/contemplative-reptile.jpg"
+        title="green iguana"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          Lizard
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Lizards are a widespread group of squamate reptiles, with over 6,000
+          species, ranging across all continents except Antarctica
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Share</Button>
+        <Button size="small">Learn More</Button>
+      </CardActions>
+    </Card> 
+    </Container>
+</Box>
 
-포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
-<p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
+      </TabPanel>
+      <TabPanel value={value} index={1}>
+        User Reviews
+      </TabPanel>
+      <TabPanel value={value} index={2}>
+        Item Three
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        Item Three
+      </TabPanel>
 
-반대의 경우도 마찬가지이다.
+      </Box>
 
-포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
-<p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
+<br />
 
-반대의 경우도 마찬가지이다.
+<Box sx={{ '& > :not(style)': { m: 1 }}} style={{ justifyContent: 'center' }}>
+<Fab variant="extended" sx={{ width: '100vh', height: '10vh', mx: 'auto' }}>
+  Play
+</Fab>
+</Box>
 
-포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
-<p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
+<br />
+<br />
 
-반대의 경우도 마찬가지이다.
+<Container maxWidth="xl"><h2>User Reviews</h2></Container>
 
-포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
-<p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
+<Box maxWidth="xl" sx={{ mx: '7vh' }}>
+    <Card variant="outlined" sx={{ mb: '3vh'}}>{card}</Card>
+    <Card variant="outlined" sx={{ mb: '3vh'}}>{card}</Card>
+    <Card variant="outlined" sx={{ mb: '3vh'}}>{card}</Card>
+</Box>
 
-반대의 경우도 마찬가지이다.
+<br />
+<br />
 
-포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
-        <div ref={goodsTabs[2].element}>sssss</div>
-        <p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
+<Container maxWidth="xl"><h2>Leaderboards</h2></Container>
 
-반대의 경우도 마찬가지이다.
+<Paper sx={{ overflow: 'hidden', ml: '7vh', mr: '7vh' }}>
+      <TableContainer sx={{ maxHeight: 320 }}>
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow>
+              {columns.map((column) => (
+                <TableCell
+                  key={column.id}
+                  align={column.align}
+                  style={{ minWidth: column.minWidth }}
+                >
+                  {column.label}
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((row) => {
+                return (
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.Username}>
+                    {columns.map((column) => {
+                      const value = row[column.id];
+                      return (
+                        <TableCell key={column.id} align={column.align}>
+                          {column.format && typeof value === 'number'
+                            ? column.format(value)
+                            : value}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                );
+              })}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Paper>
+    <Button sx={{ paddingTop: '3vh', align: 'right' }}>More</Button>
 
-포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
-<p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
+<br />
+<br />
 
-반대의 경우도 마찬가지이다.
+<Container maxWidth="xl"><h2>Data Dashboards</h2></Container>
 
-포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
-<p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
 
-반대의 경우도 마찬가지이다.
-
-포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
-        <div ref={goodsTabs[3].element}>ggggg</div>
-        <p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
-
-반대의 경우도 마찬가지이다.
-
-포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
-    </>
+</>
   );
 }
 
