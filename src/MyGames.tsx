@@ -41,14 +41,18 @@ export default function Explorer() {
       <br></br>
       
       <Container maxWidth="sm">
+      <Box display="flex"
+      alignItems="center"
+      justifyContent="center">
       <Avatar 
       alt="Remy Sharp" 
       src="/static/images/avatar/1.jpg"
-      sx={{width: 100, height: 100, alignItem: 'center'}}
+      sx={{width: 100, height: 100}}
        />
-      <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>User name</Typography>
+      </Box>
+      <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} align="center">User name</Typography>
       <br></br>
-      <p>afbb51e46e0f5579ad71ea46c</p>
+      <Typography variant="body1" component="div" sx={{ flexGrow: 1 }} align="center">afbb51e46e0f5579ad71ea46c</Typography>
       </Container>
       <br></br>
 
