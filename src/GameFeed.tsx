@@ -13,12 +13,12 @@ import Typography from '@mui/material/Typography';
 
 
 import { ReactElement } from 'react';
-import { IconButton, Toolbar } from '@mui/material';
+import { IconButton, Tab, Toolbar } from '@mui/material';
+import Tabs from '@mui/material/Tabs';
 
 import useMoveScroll from './hooks/useMoveScroll';
 // 유진아 위에 navbar은 연우가 만들었고 어차피 wallet adapter 갔다 쓸거여서 밑에 내용 먼저 만들면 될 것 같아!
 // game feed 주소 뒤에 붙는 게임 명으로 라우팅해야됨 - 주원 
-// scroll hooks: https://izizi.tistory.com/33 
 
 export const NavBar = () => {
     return (
@@ -44,7 +44,7 @@ const GameFeed = (): ReactElement => {
   };
 
   {Array.from(goodsTabs).map((tab, index) => {
-    console.log(tab.name)
+    console.log(tab.name, index)
   })}
 
   return (
@@ -82,9 +82,7 @@ const GameFeed = (): ReactElement => {
           Description
         </Typography>
 
-      {Array.from(goodsTabs).map((tab, index) => {
-        <button type='button' onClick={tab.onMoveToElement}>{tab.name}</button>;
-      })}
+        
         
         <div ref={goodsTabs[0].element}>
         News로 옵니다
