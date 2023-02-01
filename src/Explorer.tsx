@@ -25,6 +25,15 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { flexbox } from '@mui/system';
+import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design"; 
+import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
+
+import { AptosClient } from "aptos"; 
+import { useWallet } from "@aptos-labs/wallet-adapter-react";
+import { useState, useEffect } from "react";
+
+const NODE_URL = "https://fullnode.devnet.aptoslabs.com";
+const client = new AptosClient(NODE_URL);
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -82,12 +91,6 @@ const bull = (
     •
   </Box>
 );
-
-
-
-
-
-
 
 export default function Explorer() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -189,14 +192,32 @@ export default function Explorer() {
     
   );
 
+  const { account } = useWallet(); 
 
+    useEffect(() => {
+        fetchList();
+      }, [account?.address]);
+    const [accountHasList, setAccountHasList] = useState<boolean>(false);
 
-
+    const fetchList = async () => {
+        if (!account) return [];
+        // change this to be your module account address
+        const moduleAddress = "스마트 컨트렉트 배포 주소 ";
+        try {
+          const TodoListResource = await client.getAccountResource(
+            account.address,
+            `${moduleAddress}::main::TodoList`
+          );
+          setAccountHasList(true);
+        } catch (e: any) {
+          setAccountHasList(false);
+        }
+      };
   
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Container maxWidth="sm">
-      <AppBar position="static">
+      <Container maxWidth="xl">
+      <AppBar position="static" >
         <Toolbar>
           <IconButton
             size="large"
@@ -208,7 +229,7 @@ export default function Explorer() {
             <MenuIcon/>
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}></Typography>
-          <Button color="inherit" variant="outlined">Connect Wallet</Button>
+          <WalletSelector />
         </Toolbar>
       </AppBar>
       </Container>
@@ -217,15 +238,15 @@ export default function Explorer() {
       <br></br>
 
       <CssBaseline />
-      <Container maxWidth="sm">
+      <Container maxWidth="xl">
         <Box sx={{ bgcolor: '#cfe8fc', height: '50vh' }}>Promotion</Box>
       </Container>
       
       <br></br>
       <br></br>
 
-      <Container maxWidth="sm"><h3>Top Rated</h3></Container>
-      <Container maxWidth="sm">
+      <Container maxWidth="xl"><h3>Top Rated</h3></Container>
+      <Container maxWidth="xl">
       <AppBar position="static">
         <Toolbar>
           <Search>
@@ -284,7 +305,7 @@ export default function Explorer() {
       {renderMenu}
 
       <br></br>
-      <Container maxWidth="sm">
+      <Container maxWidth="xl">
       <Grid container spacing={2}>
         <Grid item xs={4}>
           <Item>Genre1</Item>
@@ -309,7 +330,7 @@ export default function Explorer() {
       <br></br>
       <br></br>
 
-    <Container maxWidth="sm">
+    <Container maxWidth="xl">
       <Card sx={{ minWidth: 275, display: 'flex' }}>
         <Box sx={{display: 'flex', flexDirection: 'column'}}>
           <CardContent sx={{flex: '1 0 auto'}}>
@@ -338,7 +359,7 @@ export default function Explorer() {
 
 
     <br></br>
-    <Card sx={{ minWidth: 275 }}>
+    <Card sx={{ maxWidth: 275 }}>
       <CardContent>
         <Typography variant="h5" component="div">
          Game Title #Genre
