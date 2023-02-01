@@ -60,9 +60,10 @@ export default function Explorer() {
       
   return (
     <div>
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, backgroundColor:'black' }}>
       <Container maxWidth="xl">
-      <AppBar position="static">
+      <AppBar position="static"
+        sx={{backgroundColor:'black'}}>
         <Toolbar>
           <IconButton
             size="large"
@@ -96,9 +97,9 @@ export default function Explorer() {
         <Avatar sx={{width: 100, height: 100}} alt="Travis Howard" src="/static/images/avatar/2.jpg" />
       </Badge>
       </Box>
-      <Typography variant="h6" component="div" sx={{ flexGrow: 1 }} align="center">User name</Typography>
       <br></br>
-      <Typography variant="body1" component="div" sx={{ flexGrow: 1 }} align="center">afbb51e46e0f5579ad71ea46c</Typography>
+      <Typography variant="h5" component="div" sx={{ flexGrow: 1, color: 'white' }} align="center">User name</Typography>
+      <Typography variant="body1" component="div" sx={{ flexGrow: 1, color: 'white' }} align="center">afbb51e46e0f5579ad71ea46c</Typography>
       </Container>
       <br></br>
 
@@ -111,12 +112,12 @@ export default function Explorer() {
           alignItems="center"
           justifyContent="center"
           sx={{flexDirection: 'column',}}>
-            <WorkspacePremiumOutlinedIcon sx={{fontSize: 60}} />
-            <Typography variant="h6" component="div" sx={{ }} align="center">Gatos Level</Typography>
+            <WorkspacePremiumOutlinedIcon sx={{fontSize: 60, color: 'lightGrey'}} />
+            <Typography variant="h6" component="div" sx={{color: 'white'}} align="center">Gatos Level</Typography>
             
           </Box>
           <Typography variant="h6" component="div" sx={{ flexGrow: 0.05 }}></Typography>
-          <Typography variant="h3" sx={{ }} align="center" >32</Typography>
+          <Typography variant="h3" sx={{color: 'white'}} align="center" >32</Typography>
         </Box>
         </Container>
 
@@ -129,53 +130,82 @@ export default function Explorer() {
       
       <Container maxWidth="xl">
       <h3>Recent Played</h3>
-      <Card sx={{ }}>
+      <Card variant="outlined" sx={{ backgroundColor: 'grey'}}>
       <CardMedia
-        sx={{ height: 200 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
-        title="green iguana"
-      />
+        sx={{ height: 200,
+        backgroundColor: 'black',
+        color: 'white' }}
+        
+        image="/assets/images/theSandboxLogo.svg"
+        title="game1"
+      >
+        <Typography gutterBottom variant="h5" component="div"
+            sx={{color:'white'}}>
+              Game Title</Typography>
+      </CardMedia>
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
+        <Box display="flex"
+            alignItems="center"
+            justifyContent="flex-end"
+            sx={{flexDirection: 'row'}}>
+          <Box display="flex"
+              alignItems="center"
+              justifyContent="center"
+              sx={{flexDirection: 'column',}}>
+            <Typography gutterBottom variant="h5" component="div"
+            sx={{color:'white'}}>
+              #3</Typography>
+            <Typography gutterBottom variant="body1" component="div"
+            sx={{color:'lightGrey'}}>
+              Ranking</Typography>
+          </Box>
+        </Box>
+
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
       </CardActions>
     </Card> 
     </Container>
-      <br></br>
-    <Box>
+
     <Container maxWidth="xl">
-      <Card>
+      <h3>Recent Played</h3>
+      <Card variant="outlined" sx={{ backgroundColor: 'grey'}}>
       <CardMedia
-        sx={{ height: 200 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
-        title="green iguana"
-      />
+        sx={{ height: 200,
+        backgroundColor: 'black',
+        color: 'white' }}
+        
+        image="/assets/images/theSandboxLogo.svg"
+        title="game1"
+      >
+        <Typography gutterBottom variant="h5" component="div"
+            sx={{color:'white'}}>
+              Game Title</Typography>
+      </CardMedia>
       <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          Lizard
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography>
+        <Box display="flex"
+            alignItems="center"
+            justifyContent="flex-end"
+            sx={{flexDirection: 'row'}}>
+          <Box display="flex"
+              alignItems="center"
+              justifyContent="center"
+              sx={{flexDirection: 'column',}}>
+            <Typography gutterBottom variant="h5" component="div"
+            sx={{color:'white'}}>
+              #3</Typography>
+            <Typography gutterBottom variant="body1" component="div"
+            sx={{color:'lightGrey'}}>
+              Ranking</Typography>
+          </Box>
+        </Box>
+
       </CardContent>
       <CardActions>
-        <Button size="small">Share</Button>
-        <Button size="small">Learn More</Button>
       </CardActions>
     </Card> 
     </Container>
-      <br></br>
-    </Box>
+    
     </Box>
     </div>
   );
