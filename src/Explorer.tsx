@@ -20,6 +20,11 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import { flexbox } from '@mui/system';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -68,6 +73,20 @@ const Item = styled(Paper)(({ theme }) => ({
   textAlign: 'center',
   color: theme.palette.text.secondary,
 }));
+
+const bull = (
+  <Box
+    component="span"
+    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+  >
+    •
+  </Box>
+);
+
+
+
+
+
 
 
 export default function Explorer() {
@@ -167,11 +186,16 @@ export default function Explorer() {
         <p>Profile</p>
       </MenuItem>
     </Menu>
+    
   );
+
+
+
 
   
   return (
     <Box sx={{ flexGrow: 1 }}>
+      <Container maxWidth="sm">
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -187,7 +211,7 @@ export default function Explorer() {
           <Button color="inherit" variant="outlined">Connect Wallet</Button>
         </Toolbar>
       </AppBar>
-
+      </Container>
       <br></br>
       <br></br>
       <br></br>
@@ -200,7 +224,8 @@ export default function Explorer() {
       <br></br>
       <br></br>
 
-      <h3>Top Rated</h3>
+      <Container maxWidth="sm"><h3>Top Rated</h3></Container>
+      <Container maxWidth="sm">
       <AppBar position="static">
         <Toolbar>
           <Search>
@@ -254,11 +279,12 @@ export default function Explorer() {
           </Box>
         </Toolbar>
       </AppBar>
+      </Container>
       {renderMobileMenu}
       {renderMenu}
 
       <br></br>
-
+      <Container maxWidth="sm">
       <Grid container spacing={2}>
         <Grid item xs={4}>
           <Item>Genre1</Item>
@@ -279,26 +305,82 @@ export default function Explorer() {
           <Item>Genre6</Item>
         </Grid>
       </Grid>
-
+    </Container>
       <br></br>
       <br></br>
 
-      <Container maxWidth="md">
-        <Box sx={{ bgcolor: '#cfe8fc', height: '30vh' }} />
-      </Container>
+    <Container maxWidth="sm">
+      <Card sx={{ minWidth: 275, display: 'flex' }}>
+        <Box sx={{display: 'flex', flexDirection: 'column'}}>
+          <CardContent sx={{flex: '1 0 auto'}}>
+            <Typography variant="h5" component="div">
+            Game Title #Genre
+            </Typography>
+            <Typography sx={{ mb: 1.5 }} color="text.secondary">
+            5.0 / 776 users
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small" variant="outlined">1 Apt</Button>
+          </CardActions>
+        </Box> 
+  
+        <Box sx={{display: 'flex'}}>
+          <CardMedia
+            component="img"
+            sx={{ width: 151 }}
+            image="/static/images/cards/live-from-space.jpg"
+            alt="Live from space album cover"/>
+        </Box>
+      
+    </Card>
+
+
+
+    <br></br>
+    <Card sx={{ minWidth: 275 }}>
+      <CardContent>
+        <Typography variant="h5" component="div">
+         Game Title #Genre
+        </Typography>
+        <Typography sx={{ ㅊ: 1.5 }} color="text.secondary">
+        5.0 / 776 users
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small" variant="outlined">1 Apt</Button>
+      </CardActions>
+    </Card>
       <br></br>
-      <Container maxWidth="md">
-        <Box sx={{ bgcolor: '#cfe8fc', height: '30vh' }} />
-      </Container>
+      <Card sx={{ minWidth: 275 }}>
+      <CardContent>
+        <Typography variant="h5" component="div">
+         Game Title #Genre
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+        5.0 / 776 users
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small" variant="outlined">1 Apt</Button>
+      </CardActions>
+    </Card>
       <br></br>
-      <Container maxWidth="md">
-        <Box sx={{ bgcolor: '#cfe8fc', height: '30vh' }} />
-      </Container>
+      <Card sx={{ minWidth: 275 }}>
+      <CardContent>
+        <Typography variant="h5" component="div">
+         Game Title #Genre
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.secondary">
+        5.0 / 776 users
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small" variant="outlined">1 Apt</Button>
+      </CardActions>
+    </Card>
       <br></br>
-      <Container maxWidth="md">
-        <Box sx={{ bgcolor: '#cfe8fc', height: '30vh' }} />
-      </Container>
-      <br></br>
+    </Container>
     </Box>
     
   );
