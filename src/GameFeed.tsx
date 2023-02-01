@@ -140,6 +140,8 @@ const rows = [
   createData(10, 'Username010', 214)
 ];
 
+
+
 const GameFeed = (): ReactElement => {
 
   /*
@@ -266,7 +268,6 @@ const GameFeed = (): ReactElement => {
 
       <TabPanel value={value} index={0}>
       <Container maxWidth="xl"><h2>Trending Community News</h2></Container>
-
 <Box>
     <Container maxWidth="xl">
       <Card>
@@ -291,24 +292,72 @@ const GameFeed = (): ReactElement => {
     </Card> 
     </Container>
 </Box>
+      </TabPanel>
 
-      </TabPanel>
       <TabPanel value={value} index={1}>
-        User Reviews
+    <Container maxWidth="xl"><h2>User Reviews</h2></Container>
+<Box maxWidth="xl" sx={{ mx: '7vh' }}>
+    <Card variant="outlined" sx={{ mb: '3vh'}}>{card}</Card>
+    <Card variant="outlined" sx={{ mb: '3vh'}}>{card}</Card>
+    <Card variant="outlined" sx={{ mb: '3vh'}}>{card}</Card>
+</Box>
       </TabPanel>
+
       <TabPanel value={value} index={2}>
-        Item Three
+      <Container maxWidth="xl"><h2>Leaderboards</h2></Container>
+
+<Paper sx={{ overflow: 'hidden', ml: '7vh', mr: '7vh' }}>
+      <TableContainer sx={{ maxHeight: 320 }}>
+        <Table stickyHeader aria-label="sticky table">
+          <TableHead>
+            <TableRow>
+              {columns.map((column) => (
+                <TableCell
+                  key={column.id}
+                  align={column.align}
+                  style={{ minWidth: column.minWidth }}
+                >
+                  {column.label}
+                </TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((row) => {
+                return (
+                  <TableRow hover role="checkbox" tabIndex={-1} key={row.Username}>
+                    {columns.map((column) => {
+                      const value = row[column.id];
+                      return (
+                        <TableCell key={column.id} align={column.align}>
+                          {column.format && typeof value === 'number'
+                            ? column.format(value)
+                            : value}
+                        </TableCell>
+                      );
+                    })}
+                  </TableRow>
+                );
+              })}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Paper>
+    <Button sx={{ paddingTop: '3vh', align: 'right' }}>More</Button>
       </TabPanel>
+
       <TabPanel value={value} index={3}>
-        Item Three
+        <Container maxWidth="xl"><h2>Data Dashboards</h2></Container>
       </TabPanel>
 
       </Box>
 
 <br />
 
-<Box sx={{ '& > :not(style)': { m: 1 }}} style={{ justifyContent: 'center' }}>
-<Fab variant="extended" sx={{ width: '100vh', height: '10vh', mx: 'auto' }}>
+<Box sx={{ '& > :not(style)': { m: 1 }, position: 'fixed', bottom: 0 }} style={{ justifyContent: 'center' }}>
+<Fab variant="extended" sx={{ height: '10vh', mx: 'auto', minWidth: '79vh'}}>
   Play
 </Fab>
 </Box>
