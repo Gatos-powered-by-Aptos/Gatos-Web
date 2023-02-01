@@ -329,8 +329,8 @@ export default function Explorer() {
           <CardMedia
             component="img"
             sx={{ width: 151 }}
-            image="/static/images/cards/live-from-space.jpg"
-            alt="Live from space album cover"/>
+            image="/asset/theSandboxLogo.svg"
+            alt="theSandboxLogo"/>
         </Box>
       
     </Card>
