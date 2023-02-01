@@ -15,6 +15,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
+import AddIcon from '@mui/icons-material/Add';
+
+import { useNavigate } from "react-router-dom";
 
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design"; 
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
@@ -30,11 +33,14 @@ const client = new AptosClient(NODE_URL);
 const SmallAvatar = styled(Avatar)(({ theme }) => ({
   width: 20,
   height: 20,
-  border: `2px solid ${theme.palette.background.paper}`,
+  border: `2px solid #0ACFFE`,
 }));
 
 export default function Explorer() {
-
+  const navigate = useNavigate();
+  const navigateToEdit = () => {
+    navigate("/mygamesedit");
+  }
   const { account } = useWallet(); 
 
     useEffect(() => {
@@ -91,10 +97,14 @@ export default function Explorer() {
         overlap="circular"
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         badgeContent={
-          <SmallAvatar sx={{fontSize: 1}} alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+          <SmallAvatar>
+            <Button variant="text"
+            sx={{color: "#0ACFFE"}}
+            onClick={navigateToEdit}><AddIcon/></Button>
+          </SmallAvatar>
         }
       >
-        <Avatar sx={{width: 100, height: 100}} alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+        <Avatar sx={{width: 100, height: 100, border: '3px solid #0ACFFE'}} alt="Travis Howard" src="/static/images/avatar/2.jpg" />
       </Badge>
       </Box>
       <br></br>
@@ -117,7 +127,7 @@ export default function Explorer() {
             
           </Box>
           <Typography variant="h6" component="div" sx={{ flexGrow: 0.05 }}></Typography>
-          <Typography variant="h3" sx={{color: 'white'}} align="center" >32</Typography>
+          <Typography variant="h3" sx={{color: "#0ACFFE"}} align="center" >32</Typography>
         </Box>
         </Container>
 
@@ -129,7 +139,8 @@ export default function Explorer() {
       
       
       <Container maxWidth="xl">
-      <h3>Recent Played</h3>
+      <Typography variant="h5" sx={{color: "#0ACFFE", fontWeight: 'bold'}}  >Recent Played</Typography>
+      <br></br>
       <Card variant="outlined" sx={{ backgroundColor: 'grey'}}>
       <CardMedia
         sx={{ height: 200,
@@ -168,7 +179,48 @@ export default function Explorer() {
     </Container>
 
     <Container maxWidth="xl">
-      <h3>Recent Played</h3>
+      <br></br>
+      <br></br>
+      <Card variant="outlined" sx={{ backgroundColor: 'grey'}}>
+      <CardMedia
+        sx={{ height: 200,
+        backgroundColor: 'black',
+        color: 'white' }}
+        
+        image="/assets/images/theSandboxLogo.svg"
+        title="game1"
+      >
+        <Typography gutterBottom variant="h5" component="div"
+            sx={{color:'white'}}>
+              Game Title</Typography>
+      </CardMedia>
+      <CardContent>
+        <Box display="flex"
+            alignItems="center"
+            justifyContent="flex-end"
+            sx={{flexDirection: 'row'}}>
+          <Box display="flex"
+              alignItems="center"
+              justifyContent="center"
+              sx={{flexDirection: 'column',}}>
+            <Typography gutterBottom variant="h5" component="div"
+            sx={{color:'white'}}>
+              #3</Typography>
+            <Typography gutterBottom variant="body1" component="div"
+            sx={{color:'lightGrey'}}>
+              Ranking</Typography>
+          </Box>
+        </Box>
+
+      </CardContent>
+      <CardActions>
+      </CardActions>
+    </Card> 
+    </Container>
+
+    <Container maxWidth="xl">
+      <br></br>
+      <br></br>
       <Card variant="outlined" sx={{ backgroundColor: 'grey'}}>
       <CardMedia
         sx={{ height: 200,
