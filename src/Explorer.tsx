@@ -216,7 +216,7 @@ export default function Explorer() {
   
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Container maxWidth="sm">
+      <Container maxWidth="xl">
       <AppBar position="static" >
         <Toolbar>
           <IconButton
@@ -238,15 +238,15 @@ export default function Explorer() {
       <br></br>
 
       <CssBaseline />
-      <Container maxWidth="sm">
+      <Container maxWidth="xl">
         <Box sx={{ bgcolor: '#cfe8fc', height: '50vh' }}>Promotion</Box>
       </Container>
       
       <br></br>
       <br></br>
 
-      <Container maxWidth="sm"><h3>Top Rated</h3></Container>
-      <Container maxWidth="sm">
+      <Container maxWidth="xl"><h3>Top Rated</h3></Container>
+      <Container maxWidth="xl">
       <AppBar position="static">
         <Toolbar>
           <Search>
@@ -305,7 +305,7 @@ export default function Explorer() {
       {renderMenu}
 
       <br></br>
-      <Container maxWidth="sm">
+      <Container maxWidth="xl">
       <Grid container spacing={2}>
         <Grid item xs={4}>
           <Item>Genre1</Item>
@@ -330,7 +330,7 @@ export default function Explorer() {
       <br></br>
       <br></br>
 
-    <Container maxWidth="sm">
+    <Container maxWidth="xl">
       <Card sx={{ minWidth: 275, display: 'flex' }}>
         <Box sx={{display: 'flex', flexDirection: 'column'}}>
           <CardContent sx={{flex: '1 0 auto'}}>
@@ -359,7 +359,7 @@ export default function Explorer() {
 
 
     <br></br>
-    <Card sx={{ minWidth: 275 }}>
+    <Card sx={{ maxWidth: 275 }}>
       <CardContent>
         <Typography variant="h5" component="div">
          Game Title #Genre
