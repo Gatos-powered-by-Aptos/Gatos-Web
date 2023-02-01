@@ -25,6 +25,10 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { flexbox } from '@mui/system';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -194,9 +198,10 @@ export default function Explorer() {
 
   
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Container maxWidth="sm">
-      <AppBar position="static">
+    <Box sx={{ flexGrow: 1, backgroundColor:'black'}}>
+      <Container maxWidth="xl">
+      <AppBar position="static"
+        sx={{backgroundColor:'black'}}>
         <Toolbar>
           <IconButton
             size="large"
@@ -207,8 +212,7 @@ export default function Explorer() {
           >
             <MenuIcon/>
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}></Typography>
-          <Button color="inherit" variant="outlined">Connect Wallet</Button>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, letterSpacing: 17 }}>GATOS</Typography>
         </Toolbar>
       </AppBar>
       </Container>
@@ -216,19 +220,30 @@ export default function Explorer() {
       <br></br>
       <br></br>
 
-      <CssBaseline />
       <Container maxWidth="sm">
-        <Box sx={{ bgcolor: '#cfe8fc', height: '50vh' }}>Promotion</Box>
+        <Box 
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        sx={{ bgcolor: '#cfe8fc', height: '50vh', borderRadius: '10px' }}>
+        <Typography variant="h5" component="div" sx={{ flexGrow: 1}} align="center">Promotion</Typography>
+        </Box>
       </Container>
       
       <br></br>
       <br></br>
+      <br></br>
+      
+      <Container maxWidth="xl">
+        <Typography variant="h5" sx={{color: "#0ACFFE", fontWeight: '600'}} >Top Rated</Typography>
+      </Container>
 
-      <Container maxWidth="sm"><h3>Top Rated</h3></Container>
-      <Container maxWidth="sm">
-      <AppBar position="static">
+      <br></br>
+      <Container maxWidth="xl">
+      <AppBar position="static"
+        sx={{backgroundColor:'black'}}>
         <Toolbar>
-          <Search>
+          <Search sx={{borderRadius: '30px', border: `1px solid #0ACFFE`}}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -238,7 +253,7 @@ export default function Explorer() {
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ display: { xs: 'none', md: 'flex'} }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
                 <MailIcon />
@@ -279,37 +294,47 @@ export default function Explorer() {
           </Box>
         </Toolbar>
       </AppBar>
-      </Container>
+    </Container>
+
       {renderMobileMenu}
       {renderMenu}
 
       <br></br>
-      <Container maxWidth="sm">
-      <Grid container spacing={2}>
-        <Grid item xs={4}>
-          <Item>Genre1</Item>
+      <Container maxWidth="xl">
+      <Grid container spacing={1}>
+        <Grid item xs={3.5}>
+          <Button
+          sx={{size:'large'}}>
+            <Item>#Metaverse</Item>
+          </Button>
+          
         </Grid>
-        <Grid item xs={4}>
-          <Item>Genre2</Item>
+        <Grid item xs={3.5}>
+          <Button>
+            <Item>#Metaverse</Item>
+          </Button>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={2}>
           <Item>Genre3</Item>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={2}>
           <Item>Genre4</Item>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={3}>
           <Item>Genre5</Item>
         </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={2}>
           <Item>Genre6</Item>
+        </Grid>
+        <Grid item xs={2.3}>
+          <Item>Genre7</Item>
         </Grid>
       </Grid>
     </Container>
       <br></br>
       <br></br>
 
-    <Container maxWidth="sm">
+    <Container maxWidth="xl">
       <Card sx={{ minWidth: 275, display: 'flex' }}>
         <Box sx={{display: 'flex', flexDirection: 'column'}}>
           <CardContent sx={{flex: '1 0 auto'}}>

@@ -17,8 +17,6 @@ import { styled } from '@mui/material/styles';
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
 import AddIcon from '@mui/icons-material/Add';
 
-import { useNavigate } from "react-router-dom";
-
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design"; 
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
 
@@ -37,10 +35,7 @@ const SmallAvatar = styled(Avatar)(({ theme }) => ({
 }));
 
 export default function Explorer() {
-  const navigate = useNavigate();
-  const navigateToEdit = () => {
-    navigate("/mygamesedit");
-  }
+  
   const { account } = useWallet(); 
 
     useEffect(() => {
@@ -99,8 +94,8 @@ export default function Explorer() {
         badgeContent={
           <SmallAvatar>
             <Button variant="text"
-            sx={{color: "#0ACFFE"}}
-            onClick={navigateToEdit}><AddIcon/></Button>
+            sx={{color: 'inherit'}}
+            ><AddIcon/></Button>
           </SmallAvatar>
         }
       >
@@ -139,9 +134,51 @@ export default function Explorer() {
       
       
       <Container maxWidth="xl">
-      <Typography variant="h5" sx={{color: "#0ACFFE", fontWeight: 'bold'}}  >Recent Played</Typography>
+      <Typography variant="h5" sx={{color: "#0ACFFE", fontWeight: '600'}}  >Recent Played</Typography>
       <br></br>
-      <Card variant="outlined" sx={{ backgroundColor: 'grey'}}>
+      <Card variant="outlined" 
+      sx={{ borderRadius: '10px',backgroundColor: 'grey'}}>
+      <CardMedia
+        sx={{ height: 200,
+        backgroundColor: 'black',
+        color: 'white' }}
+        
+        image="/assets/images/theSandboxLogo.svg"
+        title="game1"
+      >
+       <Typography gutterBottom variant="h5" component="div"
+            sx={{color:'white'}}>
+              Game Title</Typography>
+      </CardMedia>
+      <CardContent>
+        <Box display="flex"
+            alignItems="center"
+            justifyContent="flex-end"
+            sx={{flexDirection: 'row'}}>
+          <Box display="flex"
+              alignItems="center"
+              justifyContent="center"
+              sx={{flexDirection: 'column',}}>
+            <Typography gutterBottom variant="h5" component="div"
+            sx={{color:'white'}}>
+              #3</Typography>
+            <Typography gutterBottom variant="body1" component="div"
+            sx={{color:'lightGrey'}}>
+              Ranking</Typography>
+          </Box>
+        </Box>
+
+      </CardContent>
+      <CardActions>
+      </CardActions>
+    </Card> 
+    </Container>
+
+    <Container maxWidth="xl">
+      <br></br>
+      <br></br>
+      <Card variant="outlined" 
+      sx={{ borderRadius: '10px', backgroundColor: 'grey'}}>
       <CardMedia
         sx={{ height: 200,
         backgroundColor: 'black',
@@ -181,47 +218,8 @@ export default function Explorer() {
     <Container maxWidth="xl">
       <br></br>
       <br></br>
-      <Card variant="outlined" sx={{ backgroundColor: 'grey'}}>
-      <CardMedia
-        sx={{ height: 200,
-        backgroundColor: 'black',
-        color: 'white' }}
-        
-        image="/assets/images/theSandboxLogo.svg"
-        title="game1"
-      >
-        <Typography gutterBottom variant="h5" component="div"
-            sx={{color:'white'}}>
-              Game Title</Typography>
-      </CardMedia>
-      <CardContent>
-        <Box display="flex"
-            alignItems="center"
-            justifyContent="flex-end"
-            sx={{flexDirection: 'row'}}>
-          <Box display="flex"
-              alignItems="center"
-              justifyContent="center"
-              sx={{flexDirection: 'column',}}>
-            <Typography gutterBottom variant="h5" component="div"
-            sx={{color:'white'}}>
-              #3</Typography>
-            <Typography gutterBottom variant="body1" component="div"
-            sx={{color:'lightGrey'}}>
-              Ranking</Typography>
-          </Box>
-        </Box>
-
-      </CardContent>
-      <CardActions>
-      </CardActions>
-    </Card> 
-    </Container>
-
-    <Container maxWidth="xl">
-      <br></br>
-      <br></br>
-      <Card variant="outlined" sx={{ backgroundColor: 'grey'}}>
+      <Card variant="outlined" 
+      sx={{ borderRadius: '10px', backgroundColor: 'grey'}}>
       <CardMedia
         sx={{ height: 200,
         backgroundColor: 'black',
