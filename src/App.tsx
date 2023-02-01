@@ -13,10 +13,10 @@ function App() {
   <>
     <BrowserRouter>
 				<Routes>
-					<Route path="/" element={<Sample />}></Route>
+					<Route path="/" element={<Explorer />}></Route>
 					<Route path="/wallet/*" element={<Wallet />}></Route>
 					<Route path="/gamefeed/*" element={<GameFeed />}></Route>
-					<Route path="/explorer/*" element={<Explorer />}></Route>
+					<Route path="/sample/*" element={<Sample />}></Route>
 					<Route path="/mygames/*" element={<MyGames />}></Route>
 					{/* 상단에 위치하는 라우트들의 규칙을 모두 확인, 일치하는 라우트가 없는경우 처리 */}
 					<Route path="*" element={<NotFound />}></Route>
