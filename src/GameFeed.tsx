@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import Button from '@mui/material/Button';
 
 import AppBar from '@mui/material/AppBar';
@@ -17,14 +17,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Fab from '@mui/material/Fab';
 import Avatar from '@mui/material/Avatar';
-import { deepOrange, deepPurple } from '@mui/material/colors';
+import { deepOrange } from '@mui/material/colors';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 
 import '@fontsource/roboto/300.css';
@@ -37,10 +36,11 @@ import { ReactElement } from 'react';
 import { IconButton, Tab, Toolbar } from '@mui/material';
 import Tabs from '@mui/material/Tabs';
 
+/*
 import useMoveScroll from './hooks/useMoveScroll';
 // 유진아 위에 navbar은 연우가 만들었고 어차피 wallet adapter 갔다 쓸거여서 밑에 내용 먼저 만들면 될 것 같아!
 // game feed 주소 뒤에 붙는 게임 명으로 라우팅해야됨 - 주원 
-
+*/
 
 
 
@@ -75,15 +75,6 @@ function a11yProps(index: number) {
     'aria-controls': `simple-tabpanel-${index}`,
   };
 }
-
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-  >
-    •
-  </Box>
-);
 
 const card = (
   <React.Fragment>
@@ -179,15 +170,6 @@ const GameFeed = (): ReactElement => {
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-
-  const handleChangePage = (event: unknown, newPage: number) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
-  };
 
 
 
