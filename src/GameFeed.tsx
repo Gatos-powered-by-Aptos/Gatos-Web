@@ -1,33 +1,92 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Stack } from '@mui/system';
-import GFImage from './Desktop/gamefeedimage.jpeg';
+import CssBaseline from '@mui/material/CssBaseline';
+import Container from '@mui/material/Container';
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
+import Badge from '@mui/material/Badge';
+import MailIcon from '@mui/icons-material/Mail';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+/* import GFImage from './Desktop/gamefeedimage.jpeg'; */
 
-import { ReactElement, useEffect, useState, useRef } from 'react';
-import Tabs from 'components/Tabs';
-import Portfolio from 'components/Portfolio';
-import DetailInfo from 'components/DetailInfo';
+const mobileMenuId = 'primary-search-account-menu-mobile';
 
-export const NavBar = () => {
-    return (
-        <AppBar position='static'>
-            <Toolbar>
-                <IconButton></IconButton>
-                <Stack direction='row' spacing={2}>
-                    <Button variant='contained'>Connect Wallet</Button>
-                </Stack>
-            </Toolbar>
-        </AppBar>
-    )
-}
 
+
+  const renderMobileMenu = (
+    <Menu
+      anchorEl={mobileMoreAnchorEl}
+      anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      id={mobileMenuId}
+      keepMounted
+      transformOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      open={isMobileMenuOpen}
+      onClose={handleMobileMenuClose}
+    >
+      <MenuItem>
+        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+          <Badge badgeContent={4} color="error">
+            <MailIcon />
+          </Badge>
+        </IconButton>
+        <p>Messages</p>
+      </MenuItem>
+      <MenuItem>
+        <IconButton
+          size="large"
+          aria-label="show 17 new notifications"
+          color="inherit"
+        >
+          <Badge badgeContent={17} color="error">
+            <NotificationsIcon />
+          </Badge>
+        </IconButton>
+        <p>Notifications</p>
+      </MenuItem>
+      <MenuItem onClick={handleProfileMenuOpen}>
+        <IconButton
+          size="large"
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <AccountCircle />
+        </IconButton>
+        <p>Profile</p>
+      </MenuItem>
+    </Menu>
+  );
+
+export default function GameFeed() {
+
+  const isMenuOpen = Boolean(anchorEl);
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
+    React.useState<null | HTMLElement>(null);
+  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMobileMenuClose = () => {
+    setMobileMoreAnchorEl(null);
+  };
+ /*
 const menu = [
     { id: 0, name: 'News' },
     { id: 1, name: 'Reviews' },
@@ -35,7 +94,7 @@ const menu = [
     { id: 3, name: 'Data Dashboards' }
   ];
       
-export const ProductDetail = (): ReactElement => {
+const ProductDetail = (): ReactElement => {
     const [menuID, setMenuID] = useState(0);
     const portfolioRef = useRef<HTMLDivElement>(null);
     const detailInfoRef = useRef<HTMLDivElement>(null);
@@ -121,20 +180,42 @@ export const ProductDetail = (): ReactElement => {
       </div>
     </div>
   );
-};
+}; */
 
-export default function GameFeed() {
+
   return (
     <div>
     <AppBar position='static'>
             <Toolbar>
-                <IconButton></IconButton>
-                <Stack direction='row' spacing={2}>
-                    <Button variant='contained'>Connect Wallet</Button>
-                </Stack>
+                <IconButton
+                size="large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                sx={{ mr: 2 }}
+                >
+                  <MenuIcon/>
+                </IconButton>
+                <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}></Typography>
+                    <Button color="inherit" variant='contained'>Connect Wallet</Button>
             </Toolbar>
-        </AppBar>
-    <Button variant="contained">GameFeed</Button>
+    </AppBar>
+
+    <br></br>
+    <br></br>
+    <br></br>
+
+    <CssBaseline />
+    <Container maxWidth="sm">
+      <Box sx={{ bgcolor: '#cfe8fc', height: '50vh' }}>Game Image</Box>
+    </Container>
+      
+    <br></br>
+    <br></br>
+
+
+      
+
     </div>
   );
 }
