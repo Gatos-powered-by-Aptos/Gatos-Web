@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useRef } from 'react';
 import Button from '@mui/material/Button';
 
 import AppBar from '@mui/material/AppBar';
@@ -33,6 +33,7 @@ export const NavBar = () => {
     )
 }   
 
+
 const GameFeed = (): ReactElement => {
 
   const goodsTabs = {
@@ -46,6 +47,14 @@ const GameFeed = (): ReactElement => {
   {Array.from(goodsTabs).map((tab, index) => {
     console.log(tab.name, index)
   })}
+
+  const tapRef = useRef<HTMLDivElement>(null);
+  
+
+  const onTapClick = () => {
+    tapRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+  
 
   return (
     <>
@@ -82,21 +91,65 @@ const GameFeed = (): ReactElement => {
           Description
         </Typography>
         
-        <div ref={goodsTabs[0].element}>
-        News로 옵니다
-        </div>
-      
-        <div ref={goodsTabs[1].element}>
-        User Reviews로 옵니다 
-        </div>
-      
-        <div ref={goodsTabs[2].element}>
-        Leaderboards로 옵니다
-        </div>
+        <button onClick={onTapClick}>News</button>
+        <button onClick={onTapClick}>User Reviews</button>
+        <button onClick={onTapClick}>Leaderboards</button>
+        <button onClick={onTapClick}>Data Dashboards</button>
 
-        <div ref={goodsTabs[3].element}>
-        Data Dashboards로 옵니다
-        </div>
+        <div ref={goodsTabs[0].element}>ddddd</div>
+        <p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
+
+반대의 경우도 마찬가지이다.
+
+포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
+        <div ref={goodsTabs[1].element}>fffff</div>
+        <p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
+
+반대의 경우도 마찬가지이다.
+
+포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
+<p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
+
+반대의 경우도 마찬가지이다.
+
+포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
+<p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
+
+반대의 경우도 마찬가지이다.
+
+포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
+<p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
+
+반대의 경우도 마찬가지이다.
+
+포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
+<p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
+
+반대의 경우도 마찬가지이다.
+
+포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
+        <div ref={goodsTabs[2].element}>sssss</div>
+        <p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
+
+반대의 경우도 마찬가지이다.
+
+포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
+<p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
+
+반대의 경우도 마찬가지이다.
+
+포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
+<p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
+
+반대의 경우도 마찬가지이다.
+
+포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
+        <div ref={goodsTabs[3].element}>ggggg</div>
+        <p>요렇게 스크롤이 딱 포트폴리오를 설명하는 부분으로 이동한다. 
+
+반대의 경우도 마찬가지이다.
+
+포트폴리오를 설명하는 부분으로 스크롤을 내리다보면 해당 영역으로 진입하면  탭이 눌리게 된다.</p>
     </>
   );
 }
