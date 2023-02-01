@@ -2,18 +2,11 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import { Stack } from '@mui/system';
-import GFImage from './Desktop/gamefeedimage.jpeg';
+import Tabs from '@mui/material/Tabs';
 
 import { ReactElement, useEffect, useState, useRef } from 'react';
-import Tabs from 'components/Tabs';
-import Portfolio from 'components/Portfolio';
-import DetailInfo from 'components/DetailInfo';
+import { IconButton, Toolbar } from '@mui/material';
 
 export const NavBar = () => {
     return (
@@ -83,11 +76,11 @@ export const ProductDetail = (): ReactElement => {
   }
 
   // 클릭시 이동
-  function setMenu (index) {
+  function setMenu (index : number) {
     if (menu.length <= index) return; // 예외처리
     
     let top = 0;
-    setMenutID(index); 	// (현재클릭된) 메뉴ID를 변경
+    setMenuID(index); 	// (현재클릭된) 메뉴ID를 변경
 
     // id 2,3 일 때...
     // '포트폴리오' 영역을 클릭했을 때 (스크롤 위치 설정)
@@ -109,15 +102,14 @@ export const ProductDetail = (): ReactElement => {
   
   return (
     <div className="product-detail">
-      <Tabs			// 메뉴탭 컴포넌트이다
+      {/* <Tabs			// 메뉴탭 컴포넌트이다
         items={menu} 		// 메뉴 배열을 받아 보여주고
         activeID={menuID} 	// 클릭된 탭의 메뉴ID 를 내려보내주기도 하고
         setActiveID={setMenuID} // 클릭할 탭의 메뉴ID 를 여기서 조작하게 해주기도 한다.
-      />
+      /> */}
 
       <div className="product-content">
-        <MarketPortfolio ref={portfolioRef} /> // 각각의 컴포넌트에 useRef 로 DOM 에 접근하자
-        <MarketDetailInfo ref={detailInfoRef} />
+        <p>fdfdfdf</p>
       </div>
     </div>
   );
