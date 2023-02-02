@@ -110,13 +110,13 @@ const card = (
     <CardContent sx={{ maxWidth: 'xl' }}>
       <Avatar sx={{ bgcolor: deepOrange[500], mb: 1.5 }}>N</Avatar>
       <Typography sx={{ fontSize: 18 }} color="text.primary" gutterBottom>
-        Username001
+        Irene Lee 
       </Typography>
       <Typography sx={{ fontSize: 15, mb: 1.5 }} color="text.secondary">
         2/1/2023
       </Typography>
       <Typography variant="body1">
-        Crazy game
+        Crazy game!
       </Typography>
     </CardContent>
     <CardActions>
@@ -248,7 +248,7 @@ const GameFeed = (): ReactElement => {
           component="h6"
           color="white"
           >
-          Game Title #1
+          GRANSAGA : UNLIMITED 
         </Typography>
       </Box>
 
@@ -309,7 +309,13 @@ const GameFeed = (): ReactElement => {
           component="h4"
           sx={{ display: 'block', paddingLeft: 5, paddingRight: 5, color: 'white' }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+         Gran Saga: Unlimited 
+
+METAPIXEL's flagship PC MMORPG based on the popular Gran Saga IP.
+
+Player testing starts Q1. Full launch in 2023. 
+
+Get ready for a new level of web3 gaming.
         </Typography>
         
         <br />

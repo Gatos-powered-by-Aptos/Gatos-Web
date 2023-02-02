@@ -28,6 +28,10 @@ import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { useState, useEffect } from "react";
 import { Height, Opacity } from '@mui/icons-material';
 
+import promotion1 from './assets/images/promotion1.jpeg';
+import promotion2 from './assets/images/aptosflip.jpeg';
+import promotion4 from './assets/images/promotion4.jpeg';
+
 const NODE_URL = "https://fullnode.devnet.aptoslabs.com";
 const client = new AptosClient(NODE_URL);
 
@@ -317,12 +321,14 @@ export default function Explorer() {
         borderBottom: '1px solid #0ACFFE',
         color: 'white' }}
         
-        image="/assets/images/theSandboxLogo.svg"
+        image="/assets/images/promotion1.jpeg"
         title="game1"
       >
+      
        <Typography 
             sx={{color:'white',fontSize: 16, pl:2,pt:1}}>
-              Game Title</Typography>
+              GRANSAGA : UNLIMITED</Typography>
+              <img src={promotion1} alt="banner1" style={{maxWidth: "100%"}} />
       </CardMedia>
       <CardContent>
         <Box display="flex"
@@ -358,9 +364,10 @@ export default function Explorer() {
         image="/assets/images/theSandboxLogo.svg"
         title="game1"
       >
-       <Typography 
+        <Typography 
             sx={{color:'white',fontSize: 16, pl:2,pt:1}}>
-              Game Title</Typography>
+              Aptos Fliip</Typography>
+              <img src={promotion2} alt="banner1" style={{maxWidth: "100%"}} />
       </CardMedia>
       <CardContent>
         <Box display="flex"
@@ -392,9 +399,10 @@ export default function Explorer() {
         borderBottom: '1px solid #0ACFFE',
         color: 'white' }}
       >
-       <Typography 
+        <Typography 
             sx={{color:'white',fontSize: 16, pl:2,pt:1}}>
-              Game Title</Typography>
+             PixelCraft</Typography>
+              <img src={promotion4} alt="banner1" style={{maxWidth: "100%"}} />
       </CardMedia>
       <CardContent>
         <Box display="flex"
