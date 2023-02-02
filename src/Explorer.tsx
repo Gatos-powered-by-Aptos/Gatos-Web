@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -18,7 +17,6 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -29,11 +27,14 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import Carousel from 'react-material-ui-carousel'
+import Carousel from 'react-material-ui-carousel';
+import { Paper, Button } from '@mui/material';
+
 
 
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design"; 
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -94,7 +95,17 @@ const bull = (
 
 
 
-
+var items = [
+  {
+    imgAddress:"src/assets/images/promotion1.jpeg"
+  },
+  {
+    imgAddress:"src/assets/images/promotion2.png"
+  },
+  {
+    imaAddress: "src/assets/images/promotion3.png"
+  }
+];
 
 
 
@@ -196,9 +207,13 @@ export default function Explorer() {
       </MenuItem>
     </Menu>
     
-  );
+  
+  
+  
+  
+    );
 
-
+  
 
 
   
@@ -226,16 +241,17 @@ export default function Explorer() {
       <br></br>
       <br></br>
 
-      <Container maxWidth="sm">
+      <Carousel>
+        {
+        items.map(
+            (item, i) =>
+                <div style={{width: '100%', height: 'auto'}} >
+                    <img src={item.imgAddress} style={{width: '100%', height: 'auto'}} />
+                </div>
+        )
+        }   
+      </Carousel>
 
-        <Box 
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        sx={{ bgcolor: '#cfe8fc', height: '50vh', borderRadius: '10px' }}>
-        <Typography variant="h5" component="div" sx={{ flexGrow: 1}} align="center">Promotion</Typography>
-        </Box>
-      </Container>
       
       <br></br>
       <br></br>
@@ -405,8 +421,6 @@ export default function Explorer() {
         </Box> 
       </Card>
     </Container>
-    
-
 
 
     </Box>
