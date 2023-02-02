@@ -23,14 +23,6 @@ import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import { flexbox } from '@mui/system';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import InputLabel from '@mui/material/InputLabel';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import Carousel from 'react-material-ui-carousel'
-
 
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design"; 
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
