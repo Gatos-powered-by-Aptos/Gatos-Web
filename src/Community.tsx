@@ -396,6 +396,7 @@ export default function Community() {
                         </TableContainer>
                       </Paper>     
             </TabPanel> 
+
             <TabPanel value={value} index={1}>
                     <Container maxWidth="xl">
                           <Grid container spacing={1}>
@@ -432,9 +433,19 @@ export default function Community() {
                       </div>
                       </Container>
                   </TabPanel>  
-            <TabPanel value={value} index={2}>
 
-            </TabPanel> 
+            <TabPanel value={value} index={2}>
+                <Container maxWidth="xl">
+                              <Grid container spacing={1}>
+                                    <Grid item xs={3.5}>
+                                    <Button variant="contained">SEE ALL</Button>
+                                    </Grid>
+                                    <Grid item xs={3.5}>
+                                    <Button variant="contained">Game Title</Button>
+                                    </Grid>
+                              </Grid>
+                          </Container>
+                </TabPanel> 
      </div>    
   );
 }
