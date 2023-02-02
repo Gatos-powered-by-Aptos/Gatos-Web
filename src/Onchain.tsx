@@ -1,4 +1,4 @@
-import { Layout, Row, Col, Button } from "antd";
+import { Layout, Row, Col, Button, Typography } from "antd";
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design";
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
 
@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 const NODE_URL = "https://fullnode.devnet.aptoslabs.com";
 const client = new AptosClient(NODE_URL);
 
-function SmartContract() {
+function Onchain() {
     const { account } = useWallet(); 
 
     useEffect(() => {
@@ -54,6 +54,7 @@ function SmartContract() {
           </Col>
         </Row>
       </Layout>
+      <Typography>On-chain Test</Typography>
       {!accountHasList && (
       <Row gutter={[0, 32]} style={{ marginTop: "2rem" }}>
         <Col span={8} offset={8}>
@@ -67,4 +68,4 @@ function SmartContract() {
   );
   }
   
-  export default SmartContract;
+  export default Onchain;

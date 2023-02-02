@@ -7,7 +7,7 @@ import GameFeed from './GameFeed'
 import Explorer from './Explorer';
 import MyGames from './MyGames';
 import Community from './Community';
-import SmartContract from './SmartContract';
+import Onchain from './Onchain';
 import Firebase from './db/Firebase';
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
 					<Route path="/gamefeed/*" element={<GameFeed />}></Route>
 					<Route path="/mygames/*" element={<MyGames />}></Route>
 					<Route path="/community/*" element={<Community />}></Route>
-					<Route path="/smartcontract/*" element={<SmartContract />}></Route>
+					<Route path="/onchain/*" element={<Onchain />}></Route>
 					{/* 상단에 위치하는 라우트들의 규칙을 모두 확인, 일치하는 라우트가 없는경우 처리 */}
 					<Route path="*" element={<NotFound />}></Route>
 				</Routes>
