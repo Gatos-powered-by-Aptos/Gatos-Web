@@ -197,7 +197,7 @@ const GameFeed = (): ReactElement => {
 
       <Box sx={{ borderRadius: '50%', bgcolor: '#cfe8fc', height: '70vh', width: '70vh', mx: 'auto' }}>
       </Box>
-      
+
       <Box sx={{ borderRadius: '50%', bgcolor: '#cfe8fc', height: '30vh', width: '30vh', mx: 'auto' }}></Box>
 
       <br />
@@ -272,7 +272,7 @@ const GameFeed = (): ReactElement => {
       <CardMedia
         sx={{ height: 200 }}
         image="/static/images/cards/contemplative-reptile.jpg"
-        title="green iguana"
+        title="popularFeed"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
