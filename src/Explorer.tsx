@@ -256,7 +256,7 @@ export default function Explorer() {
       <AppBar position="static"
         sx={{backgroundColor:'black'}}>
         <Toolbar>
-          <Search sx={{borderRadius: '30px', border: `1px solid #0ACFFE`}}>
+          <Search sx={{borderRadius: '30px', border: `1px solid #0ACFFE` }}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -362,46 +362,46 @@ export default function Explorer() {
             // justifyContent="flex-end"
             sx={{flexDirection: 'row'}}>
           <CardContent sx={{flex: '1 0 auto'}}>
+        
+            <div style={{backgroundColor:'yellow', width: "150%"}}>
+              <Box>
+                <Typography variant="h5" component="div">
+                  <Box sx={{fontWeight:'600', color:'white'}}>Game Title</Box>
+                </Typography>
 
-            
-            <Box 
-            sx={{backgroundColor: 'white'}}>
-              <Typography variant="h5" component="div">
-                <Box sx={{fontWeight:'600', color:'white'}}>Game Title</Box>
-              </Typography>
+                <Typography variant="h6" sx={{  }} color="lightGrey">
+                  <Box sx={{fontWeight:'light'}}>
+                  #Metaverse
+                  </Box>
+                </Typography>
 
-              <Typography variant="h6" sx={{  }} color="lightGrey">
-                <Box sx={{fontWeight:'light'}}>
-                #Metaverse
-                </Box>
-              </Typography>
+                <Box sx={{mb: 3}}></Box>
 
-              <Box sx={{mb: 3}}></Box>
-
-              <Box display="flex"
-                alignItems="center"
-                justifyContent="center"
-                sx={{flexDirection: 'row'}}>
                 <Box display="flex"
-                alignItems="center"
-                justifyContent="center"
-                sx={{flexDirection: 'column',}}>
-                  <Typography variant="h5" component="div" sx={{color: 'white'}} align="center">5.0</Typography>
-                  <Typography variant="h6" component="div" sx={{color: 'grey', fontWeight: 'light'}} align="center">Rating</Typography>
-                </Box>
-                <Box display="flex"
-                alignItems="center"
-                justifyContent="center"
-                sx={{flexDirection: 'column', pl: 2}}></Box>
-                <Box display="flex"
-                alignItems="center"
-                justifyContent="center"
-                sx={{flexDirection: 'column',}}>
-                  <Typography variant="h5" component="div" sx={{color: 'white'}} align="center">776</Typography>
-                  <Typography variant="h6" component="div" sx={{color: 'grey', fontWeight: 'light'}} align="center">Users</Typography>
+                  alignItems="center"
+                  justifyContent="center"
+                  sx={{flexDirection: 'row'}}>
+                  <Box display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  sx={{flexDirection: 'column',}}>
+                    <Typography variant="h5" component="div" sx={{color: 'white'}} align="center">5.0</Typography>
+                    <Typography variant="h6" component="div" sx={{color: 'grey', fontWeight: 'light'}} align="center">Rating</Typography>
+                  </Box>
+                  <Box display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  sx={{flexDirection: 'column', pl: 2}}></Box>
+                  <Box display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  sx={{flexDirection: 'column',}}>
+                    <Typography variant="h5" component="div" sx={{color: 'white'}} align="center">776</Typography>
+                    <Typography variant="h6" component="div" sx={{color: 'grey', fontWeight: 'light'}} align="center">Users</Typography>
+                  </Box>
                 </Box>
               </Box>
-            </Box>
+            </div>
             
 
           </CardContent>

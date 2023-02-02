@@ -23,15 +23,15 @@ import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
 import { AptosClient } from "aptos"; 
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { useState, useEffect } from "react";
-import { Height } from '@mui/icons-material';
+import { Height, Opacity } from '@mui/icons-material';
 
 const NODE_URL = "https://fullnode.devnet.aptoslabs.com";
 const client = new AptosClient(NODE_URL);
 
 const SmallAvatar = styled(Avatar)(({ theme }) => ({
-  width: 20,
-  height: 20,
-  border: `2px solid #0ACFFE`,
+  width: 12,
+  height: 12,
+  border: `1px solid #0ACFFE`,
 }));
 
 export default function Explorer() {
@@ -92,46 +92,42 @@ export default function Explorer() {
         overlap="circular"
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         badgeContent={
-          <SmallAvatar>
-            <Button variant="text"
-            sx={{color: 'inherit'}}
+          <SmallAvatar sx={{backgroundColor:'#0ACFFE'}}>
+            <Button
+            sx={{color: 'black',}}
             ><AddIcon/></Button>
           </SmallAvatar>
         }
       >
-        <Avatar sx={{width: 100, height: 100, border: '3px solid #0ACFFE'}} alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+        <Avatar sx={{width: 100, height: 100, border: '1px solid #0ACFFE'}}  />
       </Badge>
       </Box>
       <br></br>
-      <Typography variant="h5" component="div" sx={{ flexGrow: 1, color: 'white' }} align="center">User name</Typography>
+      <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: 'white', fontWeight:'bold' }} align="center">User name</Typography>
       <Typography variant="body1" component="div" sx={{ flexGrow: 1, color: 'white' }} align="center">afbb51e46e0f5579ad71ea46c</Typography>
       </Container>
+
+      <br></br>
+      <br></br>
       <br></br>
 
       <Container maxWidth="xl">
+        <Typography variant="h5" sx={{color: "#0ACFFE", fontWeight: '600', mb:2}}  >Overview</Typography>
         <Box display="flex"
-          alignItems="center"
-          justifyContent="center"
-          sx={{flexDirection: 'row'}}>
-          <Box display="flex"
-          alignItems="center"
-          justifyContent="center"
-          sx={{flexDirection: 'column',}}>
-            <WorkspacePremiumOutlinedIcon sx={{fontSize: 60, color: 'lightGrey'}} />
-            <Typography variant="h6" component="div" sx={{color: 'white'}} align="center">Gatos Level</Typography>
-            
-          </Box>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 0.05 }}></Typography>
-          <Typography variant="h3" sx={{color: "#0ACFFE"}} align="center" >32</Typography>
-        </Box>
-        </Container>
-
-      <br></br>
-      <br></br>
-      <br></br>
-
+            alignItems="center"
+            justifyContent="center"
+            sx={{flexDirection: 'row'}}>
+              <Box sx={{border: '1px solid #495AFF', borderRadius:'5px', opacity:'40%', width:'100px', height:'100px', mr: 2, }}>
+                <Typography variant="h5" sx={{color: 'white', pl:5, ph:5}}>32</Typography>
+              </Box>
+              <Box sx={{border: '1px solid #495AFF', borderRadius:'5px', opacity:'40%', width:'100px', height:'100px', mr: 2,}}></Box>
+              <Box sx={{border: '1px solid #495AFF', borderRadius:'5px', opacity:'40%', width:'100px', height:'100px', }}></Box>
+            </Box>
+      </Container>
       
-      
+      <Container maxWidth="xl">
+      <Typography variant="h5" sx={{color: "#0ACFFE", fontWeight: '600'}}  >Posts</Typography>
+      </Container>
       
       <Container maxWidth="xl">
       <Typography variant="h5" sx={{color: "#0ACFFE", fontWeight: '600'}}  >Recent Played</Typography>
