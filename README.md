@@ -2,7 +2,6 @@
 React TS MUI 
 react-router-dom
 Aptos TypeScript SDK
-
 Responsive UI로 작업 부탁
 
 ## 개발팀 
