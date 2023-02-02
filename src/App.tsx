@@ -8,7 +8,6 @@ import Explorer from './Explorer';
 import MyGames from './MyGames';
 import Community from './Community';
 import Onchain from './Onchain';
-import Firebase from './db/Firebase';
 
 function App() {
   return (
