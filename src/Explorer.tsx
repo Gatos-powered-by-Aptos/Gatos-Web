@@ -29,6 +29,8 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Carousel from 'react-material-ui-carousel'
+
 
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design"; 
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
@@ -225,6 +227,7 @@ export default function Explorer() {
       <br></br>
 
       <Container maxWidth="sm">
+
         <Box 
         display="flex"
         alignItems="center"
