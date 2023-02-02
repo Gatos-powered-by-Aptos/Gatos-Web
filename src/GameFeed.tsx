@@ -357,7 +357,8 @@ const GameFeed = (): ReactElement => {
 <br />
 
 <Box sx={{ '& > :not(style)': { m: 1 }, position: 'fixed', bottom: 0 }} style={{ justifyContent: 'center' }}>
-<Fab variant="extended" sx={{ height: '10vh', mx: 'auto', minWidth: '79vh'}}>
+<Fab variant="extended" sx={{ height: '10vh', mx: 'auto', minWidth: '79vh'}}
+onClick={() => { alert('Comming Soon') }}>
   Play
 </Fab>
 </Box>
