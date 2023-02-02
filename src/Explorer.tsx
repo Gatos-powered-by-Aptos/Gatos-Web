@@ -31,9 +31,12 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Carousel from 'react-material-ui-carousel';
 
+
+
 import promotion1 from './assets/images/promotion1.jpeg';
 import promotion2 from './assets/images/promotion2.png';
 import promotion3 from './assets/images/promotion3.png';
+import gatosLogo from './assets/images/GATOS.png';
 
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design"; 
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
@@ -206,6 +209,7 @@ export default function Explorer() {
 
   
   return (
+    <div>
     <Box sx={{ flexGrow: 1, backgroundColor:'black'}}>
       <Container maxWidth="xl">
       <AppBar position="static"
@@ -218,10 +222,13 @@ export default function Explorer() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-            <MenuIcon/>
+            <MenuIcon sx={{color:'#0ACFFE'}}/>
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, letterSpacing: 17 }}>GATOS</Typography>
-          <WalletSelector/>
+          <div>
+            <img src={gatosLogo} alt="logo" width="80vw"/>
+          </div>
+          <Box sx={{width:'500vw'}}></Box>
+          <WalletSelector></WalletSelector>
         </Toolbar>
       </AppBar>
       </Container>
@@ -244,14 +251,10 @@ export default function Explorer() {
 
       
       <br></br>
-      <br></br>
-      <br></br>
       
       <Container maxWidth="xl">
-        <Typography variant="h5" sx={{color: "#0ACFFE", fontWeight: '600'}} >Top Rated</Typography>
+        <Typography sx={{color: "#0ACFFE", fontWeight: '600', fontSize: '16px', pb:1}} >Top Rated</Typography>
       </Container>
-
-      <br></br>
       <Container maxWidth="xl">
       <AppBar position="static"
         sx={{backgroundColor:'black'}}>
@@ -265,89 +268,56 @@ export default function Explorer() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-          <Box sx={{ flexGrow: 1 }} />
+          {/* <Box sx={{ flexGrow: 1 }} /> */}
           <Box sx={{ display: { xs: 'none', md: 'flex'} }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton>
             <IconButton
-              size="large"
-              aria-label="show 17 new notifications"
-              color="inherit"
-            >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
-              </Badge>
-            </IconButton>
-            <IconButton
-              size="large"
+              size="small"
               edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-          </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
+              aria-label="sortby"
+              sx={{color:'white'}}><ArrowDropDownIcon/></IconButton>
           </Box>
         </Toolbar>
       </AppBar>
     </Container>
 
-      {renderMobileMenu}
-      {renderMenu}
-
       <br></br>
+      
+      
       <Container maxWidth="xl">
       <Grid container spacing={1}>
         <Grid item xs={3.5}>
           <Item
-          sx={{backgroundColor: 'white', color: "#495AFF"}}
-          >#Metaverse</Item>
+            sx={{backgroundColor: 'white',  color: "#495AFF"}}
+            >#Metaverse</Item>
         </Grid>
         <Grid item xs={3.5}>
           <Item
-          sx={{backgroundColor: '#495AFF', opacity:0.35, color: "white"}}
+          sx={{backgroundColor: '#292F68',  color: "#495AFF"}}
           >#Adventure</Item>
         </Grid>
         <Grid item xs={2}>
           <Item
-          sx={{backgroundColor: '#495AFF', opacity:0.35, color: "white"}}
+          sx={{backgroundColor: '#292F68',  color: "#495AFF"}}
           >#card</Item>
         </Grid>
         <Grid item xs={2}>
           <Item
-          sx={{backgroundColor: '#495AFF', opacity:0.35, color: "white"}}
+          sx={{backgroundColor: '#292F68', color: "#495AFF"}}
           >#Idle</Item>
         </Grid>
         <Grid item xs={3}>
           <Item
-          sx={{backgroundColor: '#495AFF', opacity:0.35, color: "white"}}
+          sx={{backgroundColor: '#292F68', color: "#495AFF"}}
           >#Sports</Item>
         </Grid>
         <Grid item xs={2}>
           <Item
-          sx={{backgroundColor: '#495AFF', opacity:0.35, color: "white"}}
+          sx={{backgroundColor: '#292F68',  color: "#495AFF"}}
           >#RPG</Item>
         </Grid>
         <Grid item xs={2.3}>
           <Item
-          sx={{backgroundColor: '#495AFF', opacity:0.35, color: "white"}}
+          sx={{backgroundColor: '#292F68',  color: "#495AFF"}}
           >#Moba</Item>
         </Grid>
       </Grid>
@@ -355,68 +325,455 @@ export default function Explorer() {
       <br></br>
       <br></br>
 
-    <Container maxWidth="xl">
-      <Card sx={{ minWidth: 275, display: 'flex', backgroundColor: "#424242", borderRadius: '10px', border: '1px solid #0ACFFE'}}>
-        <Box display="flex"
-            alignItems="flex-end"
-            // justifyContent="flex-end"
-            sx={{flexDirection: 'row'}}>
-          <CardContent sx={{flex: '1 0 auto'}}>
-        
-            <div style={{backgroundColor:'yellow', width: "150%"}}>
-              <Box>
-                <Typography variant="h5" component="div">
-                  <Box sx={{fontWeight:'600', color:'white'}}>Game Title</Box>
-                </Typography>
 
-                <Typography variant="h6" sx={{  }} color="lightGrey">
-                  <Box sx={{fontWeight:'light'}}>
-                  #Metaverse
+      {/* 게임 카드 */}
+      <Container maxWidth="xl">
+      <Card
+        sx={{
+          height: '120px',
+          minWidth: 275,
+          display: 'flex',
+          backgroundColor: '#424242',
+          borderRadius: '10px',
+          border: '1px solid #0ACFFE',
+        }}
+      >
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <CardContent sx={{ flex: '1 0 auto' }}>
+              <Box
+                display="flex"
+                alignItems="flex-start"
+                sx={{ flexDirection: 'column' }}
+              >
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  sx={{ flexDirection: 'column' }}
+                >
+                  <Typography sx={{ fontSize: '16px' }} component="div">
+                    <Box sx={{ fontWeight: '600', color: 'white' }}>
+                      Game Title
+                    </Box>
+                  </Typography>
+
+                  <Typography sx={{ fontSize: '14px' }} color="lightGrey">
+                    <Box sx={{ fontWeight: 'light' }}>#Metaverse</Box>
+                  </Typography>
+                </Box>
+
+                <Box sx={{ mb: 2 }}></Box>
+
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  sx={{ flexDirection: 'row' }}
+                >
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    sx={{ flexDirection: 'column' }}
+                  >
+                    <Typography
+                      component="div"
+                      sx={{ color: 'white', fontSize: '14px' }}
+                      align="center"
+                    >
+                      5.0
+                    </Typography>
+                    <Typography
+                      component="div"
+                      sx={{
+                        color: 'grey',
+                        fontWeight: 'light',
+                        fontSize: '11px',
+                      }}
+                      align="center"
+                    >
+                      Rating
+                    </Typography>
                   </Box>
-                </Typography>
-
-                <Box sx={{mb: 3}}></Box>
-
-                <Box display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  sx={{flexDirection: 'row'}}>
-                  <Box display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  sx={{flexDirection: 'column',}}>
-                    <Typography variant="h5" component="div" sx={{color: 'white'}} align="center">5.0</Typography>
-                    <Typography variant="h6" component="div" sx={{color: 'grey', fontWeight: 'light'}} align="center">Rating</Typography>
-                  </Box>
-                  <Box display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  sx={{flexDirection: 'column', pl: 2}}></Box>
-                  <Box display="flex"
-                  alignItems="center"
-                  justifyContent="center"
-                  sx={{flexDirection: 'column',}}>
-                    <Typography variant="h5" component="div" sx={{color: 'white'}} align="center">776</Typography>
-                    <Typography variant="h6" component="div" sx={{color: 'grey', fontWeight: 'light'}} align="center">Users</Typography>
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    sx={{ flexDirection: 'column', pl: 2 }}
+                  ></Box>
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    sx={{ flexDirection: 'column' }}
+                  >
+                    <Typography
+                      component="div"
+                      sx={{ color: 'white', fontSize: '14px' }}
+                      align="center"
+                    >
+                      776
+                    </Typography>
+                    <Typography
+                      component="div"
+                      sx={{
+                        color: 'grey',
+                        fontWeight: 'light',
+                        fontSize: '11px',
+                      }}
+                      align="center"
+                    >
+                      Users
+                    </Typography>
                   </Box>
                 </Box>
               </Box>
-            </div>
+            </CardContent>
+          </Grid>
+          <Grid item xs={2}>
+            <Box
+              display="flex"
+              alignItems="flex-end"
+              sx={{ flexDirection: 'column' }}
+            >
+              <Box sx={{ mb: 9 }}></Box>
+              <CardActions>
+                <Button
+                  size="small"
+                  variant="outlined"
+                  sx={{ fontSize: '12px', color:'black', bgcolor:'#0ACFFE' }}
+                >
+                  Reward
+                </Button>
+              </CardActions>
+            </Box>
+          </Grid>
+          <Grid item xs={4}>
             
-
-          </CardContent>
-          <CardActions>
-            <Button size="small" variant="outlined">Reward</Button>
-          </CardActions>
-        </Box> 
+              <Box
+                display="flex"
+                alignItems="flex-start"
+                sx={{ flexDirection: 'column' }}
+              >
+                <Box sx={{mb:1.2}}></Box>
+                <Card
+                  sx={{
+                    width: '100px',
+                    height: '100px',
+                    display: 'flex',
+                    backgroundColor: '#424242',
+                    borderRadius: '10px',
+                    border: '1px solid #0ACFFE',
+                  }}
+                ></Card>
+              </Box>
+            
+          </Grid>
+        </Grid>
       </Card>
     </Container>
+    <br/>
     
+    <Container maxWidth="xl">
+      <Card
+        sx={{
+          height: '120px',
+          minWidth: 275,
+          display: 'flex',
+          backgroundColor: '#424242',
+          borderRadius: '10px',
+          border: '1px solid #0ACFFE',
+        }}
+      >
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <CardContent sx={{ flex: '1 0 auto' }}>
+              <Box
+                display="flex"
+                alignItems="flex-start"
+                sx={{ flexDirection: 'column' }}
+              >
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  sx={{ flexDirection: 'column' }}
+                >
+                  <Typography sx={{ fontSize: '16px' }} component="div">
+                    <Box sx={{ fontWeight: '600', color: 'white' }}>
+                      Game Title
+                    </Box>
+                  </Typography>
+
+                  <Typography sx={{ fontSize: '14px' }} color="lightGrey">
+                    <Box sx={{ fontWeight: 'light' }}>#Metaverse</Box>
+                  </Typography>
+                </Box>
+
+                <Box sx={{ mb: 2 }}></Box>
+
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  sx={{ flexDirection: 'row' }}
+                >
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    sx={{ flexDirection: 'column' }}
+                  >
+                    <Typography
+                      component="div"
+                      sx={{ color: 'white', fontSize: '14px' }}
+                      align="center"
+                    >
+                      5.0
+                    </Typography>
+                    <Typography
+                      component="div"
+                      sx={{
+                        color: 'grey',
+                        fontWeight: 'light',
+                        fontSize: '11px',
+                      }}
+                      align="center"
+                    >
+                      Rating
+                    </Typography>
+                  </Box>
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    sx={{ flexDirection: 'column', pl: 2 }}
+                  ></Box>
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    sx={{ flexDirection: 'column' }}
+                  >
+                    <Typography
+                      component="div"
+                      sx={{ color: 'white', fontSize: '14px' }}
+                      align="center"
+                    >
+                      776
+                    </Typography>
+                    <Typography
+                      component="div"
+                      sx={{
+                        color: 'grey',
+                        fontWeight: 'light',
+                        fontSize: '11px',
+                      }}
+                      align="center"
+                    >
+                      Users
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
+            </CardContent>
+          </Grid>
+          <Grid item xs={2}>
+            <Box
+              display="flex"
+              alignItems="flex-end"
+              sx={{ flexDirection: 'column' }}
+            >
+              <Box sx={{ mb: 9 }}></Box>
+              <CardActions>
+                <Button
+                  size="small"
+                  variant="outlined"
+                  sx={{ fontSize: '12px', color:'black', bgcolor:'#0ACFFE' }}
+                >
+                  Reward
+                </Button>
+              </CardActions>
+            </Box>
+          </Grid>
+          <Grid item xs={4}>
+            
+              <Box
+                display="flex"
+                alignItems="flex-start"
+                sx={{ flexDirection: 'column' }}
+              >
+                <Box sx={{mb:1.2}}></Box>
+                <Card
+                  sx={{
+                    width: '100px',
+                    height: '100px',
+                    display: 'flex',
+                    backgroundColor: '#424242',
+                    borderRadius: '10px',
+                    border: '1px solid #0ACFFE',
+                  }}
+                ></Card>
+              </Box>
+            
+          </Grid>
+        </Grid>
+      </Card>
+    </Container>
+    <br/>
+
+    <Container maxWidth="xl">
+      <Card
+        sx={{
+          height: '120px',
+          minWidth: 275,
+          display: 'flex',
+          backgroundColor: '#424242',
+          borderRadius: '10px',
+          border: '1px solid #0ACFFE',
+        }}
+      >
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            <CardContent sx={{ flex: '1 0 auto' }}>
+              <Box
+                display="flex"
+                alignItems="flex-start"
+                sx={{ flexDirection: 'column' }}
+              >
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  sx={{ flexDirection: 'column' }}
+                >
+                  <Typography sx={{ fontSize: '16px' }} component="div">
+                    <Box sx={{ fontWeight: '600', color: 'white' }}>
+                      Game Title
+                    </Box>
+                  </Typography>
+
+                  <Typography sx={{ fontSize: '14px' }} color="lightGrey">
+                    <Box sx={{ fontWeight: 'light' }}>#Metaverse</Box>
+                  </Typography>
+                </Box>
+
+                <Box sx={{ mb: 2 }}></Box>
+
+                <Box
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
+                  sx={{ flexDirection: 'row' }}
+                >
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    sx={{ flexDirection: 'column' }}
+                  >
+                    <Typography
+                      component="div"
+                      sx={{ color: 'white', fontSize: '14px' }}
+                      align="center"
+                    >
+                      5.0
+                    </Typography>
+                    <Typography
+                      component="div"
+                      sx={{
+                        color: 'grey',
+                        fontWeight: 'light',
+                        fontSize: '11px',
+                      }}
+                      align="center"
+                    >
+                      Rating
+                    </Typography>
+                  </Box>
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    sx={{ flexDirection: 'column', pl: 2 }}
+                  ></Box>
+                  <Box
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    sx={{ flexDirection: 'column' }}
+                  >
+                    <Typography
+                      component="div"
+                      sx={{ color: 'white', fontSize: '14px' }}
+                      align="center"
+                    >
+                      776
+                    </Typography>
+                    <Typography
+                      component="div"
+                      sx={{
+                        color: 'grey',
+                        fontWeight: 'light',
+                        fontSize: '11px',
+                      }}
+                      align="center"
+                    >
+                      Users
+                    </Typography>
+                  </Box>
+                </Box>
+              </Box>
+            </CardContent>
+          </Grid>
+          <Grid item xs={2}>
+            <Box
+              display="flex"
+              alignItems="flex-end"
+              sx={{ flexDirection: 'column' }}
+            >
+              <Box sx={{ mb: 9 }}></Box>
+              <CardActions>
+                <Button
+                  size="small"
+                  variant="outlined"
+                  sx={{ fontSize: '12px', color:'black', bgcolor:'#0ACFFE' }}
+                >
+                  Reward
+                </Button>
+              </CardActions>
+            </Box>
+          </Grid>
+          <Grid item xs={4}>
+            
+              <Box
+                display="flex"
+                alignItems="flex-start"
+                sx={{ flexDirection: 'column' }}
+              >
+                <Box sx={{mb:1.2}}></Box>
+                <Card
+                  sx={{
+                    width: '100px',
+                    height: '100px',
+                    display: 'flex',
+                    backgroundColor: '#424242',
+                    borderRadius: '10px',
+                    border: '1px solid #0ACFFE',
+                  }}
+                ></Card>
+              </Box>
+            
+          </Grid>
+        </Grid>
+      </Card>
+    </Container>
+    <br/>
+    <br/>
+    <br/>
 
 
 
     </Box>
-    
+  </div>
   );
   
 
