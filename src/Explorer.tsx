@@ -30,6 +30,7 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -303,31 +304,39 @@ export default function Explorer() {
       <Container maxWidth="xl">
       <Grid container spacing={1}>
         <Grid item xs={3.5}>
-          <Button
-          sx={{size:'large'}}>
-            <Item>#Metaverse</Item>
-          </Button>
-          
+          <Item
+          sx={{backgroundColor: 'white', color: "#495AFF"}}
+          >#Metaverse</Item>
         </Grid>
         <Grid item xs={3.5}>
-          <Button>
-            <Item>#Metaverse</Item>
-          </Button>
+          <Item
+          sx={{backgroundColor: '#495AFF', opacity:0.35, color: "white"}}
+          >#Adventure</Item>
         </Grid>
         <Grid item xs={2}>
-          <Item>Genre3</Item>
+          <Item
+          sx={{backgroundColor: '#495AFF', opacity:0.35, color: "white"}}
+          >#card</Item>
         </Grid>
         <Grid item xs={2}>
-          <Item>Genre4</Item>
+          <Item
+          sx={{backgroundColor: '#495AFF', opacity:0.35, color: "white"}}
+          >#Idle</Item>
         </Grid>
         <Grid item xs={3}>
-          <Item>Genre5</Item>
+          <Item
+          sx={{backgroundColor: '#495AFF', opacity:0.35, color: "white"}}
+          >#Sports</Item>
         </Grid>
         <Grid item xs={2}>
-          <Item>Genre6</Item>
+          <Item
+          sx={{backgroundColor: '#495AFF', opacity:0.35, color: "white"}}
+          >#RPG</Item>
         </Grid>
         <Grid item xs={2.3}>
-          <Item>Genre7</Item>
+          <Item
+          sx={{backgroundColor: '#495AFF', opacity:0.35, color: "white"}}
+          >#Moba</Item>
         </Grid>
       </Grid>
     </Container>
@@ -335,77 +344,57 @@ export default function Explorer() {
       <br></br>
 
     <Container maxWidth="xl">
-      <Card sx={{ minWidth: 275, display: 'flex' }}>
+      <Card sx={{ minWidth: 275, display: 'flex', backgroundColor: "#424242", borderRadius: '10px', border: '1px solid #0ACFFE'}}>
         <Box sx={{display: 'flex', flexDirection: 'column'}}>
           <CardContent sx={{flex: '1 0 auto'}}>
             <Typography variant="h5" component="div">
-            Game Title #Genre
+              <Box sx={{fontWeight:'600', color:'white'}}>Game Title</Box>
             </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            5.0 / 776 users
+
+            <Typography variant="h6" sx={{  }} color="lightGrey">
+              <Box sx={{fontWeight:'light'}}>
+              #Metaverse
+              </Box>
             </Typography>
+
+            <Box sx={{mb: 3}}></Box>
+
+            <Box display="flex"
+              alignItems="center"
+              justifyContent="center"
+              sx={{flexDirection: 'row'}}>
+              <Box display="flex"
+              alignItems="center"
+              justifyContent="center"
+              sx={{flexDirection: 'column',}}>
+                <Typography variant="h5" component="div" sx={{color: 'white'}} align="center">5.0</Typography>
+                <Typography variant="h6" component="div" sx={{color: 'grey', fontWeight: 'light'}} align="center">Rating</Typography>
+              </Box>
+              <Box display="flex"
+              alignItems="center"
+              justifyContent="center"
+              sx={{flexDirection: 'column', pl: 2}}></Box>
+              <Box display="flex"
+              alignItems="center"
+              justifyContent="center"
+              sx={{flexDirection: 'column',}}>
+                <Typography variant="h5" component="div" sx={{color: 'white'}} align="center">5.0</Typography>
+                <Typography variant="h6" component="div" sx={{color: 'grey', fontWeight: 'light'}} align="center">Rating</Typography>
+              </Box>
+            </Box>
+
+
           </CardContent>
           <CardActions>
-            <Button size="small" variant="outlined">1 Apt</Button>
+            <Button size="small" variant="outlined">Reward</Button>
           </CardActions>
         </Box> 
-  
-        <Box sx={{display: 'flex'}}>
-          <CardMedia
-            component="img"
-            sx={{ width: 151 }}
-            image="/asset/theSandboxLogo.svg"
-            alt="theSandboxLogo"/>
-        </Box>
-      
-    </Card>
-
-
-
-    <br></br>
-    <Card sx={{ minWidth: 275 }}>
-      <CardContent>
-        <Typography variant="h5" component="div">
-         Game Title #Genre
-        </Typography>
-        <Typography sx={{ ㅊ: 1.5 }} color="text.secondary">
-        5.0 / 776 users
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small" variant="outlined">1 Apt</Button>
-      </CardActions>
-    </Card>
-      <br></br>
-      <Card sx={{ minWidth: 275 }}>
-      <CardContent>
-        <Typography variant="h5" component="div">
-         Game Title #Genre
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        5.0 / 776 users
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small" variant="outlined">1 Apt</Button>
-      </CardActions>
-    </Card>
-      <br></br>
-      <Card sx={{ minWidth: 275 }}>
-      <CardContent>
-        <Typography variant="h5" component="div">
-         Game Title #Genre
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        5.0 / 776 users
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small" variant="outlined">1 Apt</Button>
-      </CardActions>
-    </Card>
-      <br></br>
+      </Card>
     </Container>
+    
+
+
+
     </Box>
     
   );
