@@ -27,9 +27,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import Carousel from 'react-material-ui-carousel';
-import { Paper, Button } from '@mui/material';
-
+import Carousel from 'react-material-ui-carousel'
 
 
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design"; 
