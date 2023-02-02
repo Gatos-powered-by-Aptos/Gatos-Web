@@ -29,6 +29,8 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Carousel from 'react-material-ui-carousel'
+
 
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design"; 
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
@@ -225,6 +227,7 @@ export default function Explorer() {
       <br></br>
 
       <Container maxWidth="sm">
+
         <Box 
         display="flex"
         alignItems="center"
@@ -348,44 +351,52 @@ export default function Explorer() {
 
     <Container maxWidth="xl">
       <Card sx={{ minWidth: 275, display: 'flex', backgroundColor: "#424242", borderRadius: '10px', border: '1px solid #0ACFFE'}}>
-        <Box sx={{display: 'flex', flexDirection: 'column'}}>
+        <Box display="flex"
+            alignItems="flex-end"
+            // justifyContent="flex-end"
+            sx={{flexDirection: 'row'}}>
           <CardContent sx={{flex: '1 0 auto'}}>
-            <Typography variant="h5" component="div">
-              <Box sx={{fontWeight:'600', color:'white'}}>Game Title</Box>
-            </Typography>
 
-            <Typography variant="h6" sx={{  }} color="lightGrey">
-              <Box sx={{fontWeight:'light'}}>
-              #Metaverse
-              </Box>
-            </Typography>
+            
+            <Box 
+            sx={{backgroundColor: 'white'}}>
+              <Typography variant="h5" component="div">
+                <Box sx={{fontWeight:'600', color:'white'}}>Game Title</Box>
+              </Typography>
 
-            <Box sx={{mb: 3}}></Box>
+              <Typography variant="h6" sx={{  }} color="lightGrey">
+                <Box sx={{fontWeight:'light'}}>
+                #Metaverse
+                </Box>
+              </Typography>
 
-            <Box display="flex"
-              alignItems="center"
-              justifyContent="center"
-              sx={{flexDirection: 'row'}}>
+              <Box sx={{mb: 3}}></Box>
+
               <Box display="flex"
-              alignItems="center"
-              justifyContent="center"
-              sx={{flexDirection: 'column',}}>
-                <Typography variant="h5" component="div" sx={{color: 'white'}} align="center">5.0</Typography>
-                <Typography variant="h6" component="div" sx={{color: 'grey', fontWeight: 'light'}} align="center">Rating</Typography>
-              </Box>
-              <Box display="flex"
-              alignItems="center"
-              justifyContent="center"
-              sx={{flexDirection: 'column', pl: 2}}></Box>
-              <Box display="flex"
-              alignItems="center"
-              justifyContent="center"
-              sx={{flexDirection: 'column',}}>
-                <Typography variant="h5" component="div" sx={{color: 'white'}} align="center">5.0</Typography>
-                <Typography variant="h6" component="div" sx={{color: 'grey', fontWeight: 'light'}} align="center">Rating</Typography>
+                alignItems="center"
+                justifyContent="center"
+                sx={{flexDirection: 'row'}}>
+                <Box display="flex"
+                alignItems="center"
+                justifyContent="center"
+                sx={{flexDirection: 'column',}}>
+                  <Typography variant="h5" component="div" sx={{color: 'white'}} align="center">5.0</Typography>
+                  <Typography variant="h6" component="div" sx={{color: 'grey', fontWeight: 'light'}} align="center">Rating</Typography>
+                </Box>
+                <Box display="flex"
+                alignItems="center"
+                justifyContent="center"
+                sx={{flexDirection: 'column', pl: 2}}></Box>
+                <Box display="flex"
+                alignItems="center"
+                justifyContent="center"
+                sx={{flexDirection: 'column',}}>
+                  <Typography variant="h5" component="div" sx={{color: 'white'}} align="center">776</Typography>
+                  <Typography variant="h6" component="div" sx={{color: 'grey', fontWeight: 'light'}} align="center">Users</Typography>
+                </Box>
               </Box>
             </Box>
-
+            
 
           </CardContent>
           <CardActions>
