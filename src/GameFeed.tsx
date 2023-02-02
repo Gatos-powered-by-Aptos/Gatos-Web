@@ -25,6 +25,8 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import { positions } from '@mui/system';
+
 
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -77,7 +79,7 @@ function a11yProps(index: number) {
 
 const card = (
   <React.Fragment>
-    <CardContent>
+    <CardContent sx={{ maxWidth: 'xl' }}>
       <Avatar sx={{ bgcolor: deepOrange[500], mb: 1.5 }}>N</Avatar>
       <Typography sx={{ fontSize: 18 }} color="text.primary" gutterBottom>
         Username001
@@ -171,8 +173,9 @@ const GameFeed = (): ReactElement => {
   const theme = useTheme();
 
   return (
+    <Box sx={{ flexGrow: 1, backgroundColor: 'black' }}>
     <React.Fragment>
-        <AppBar position='static'>
+        <AppBar position='static' sx={{backgroundColor:'black'}}>
           <Toolbar>
             <IconButton
             size="large"
@@ -195,9 +198,6 @@ const GameFeed = (): ReactElement => {
       <br></br>
       <br></br>
 
-      <Box sx={{ borderRadius: '50%', bgcolor: '#cfe8fc', height: '70vh', width: '70vh', mx: 'auto' }}>
-      </Box>
-
       <Box sx={{ borderRadius: '50%', bgcolor: '#cfe8fc', height: '30vh', width: '30vh', mx: 'auto' }}></Box>
 
       <br />
@@ -206,8 +206,9 @@ const GameFeed = (): ReactElement => {
           textAlign="center"
           variant="h4"
           component="h4"
+          color="white"
           >
-          Game Name
+          Game Title #1
         </Typography>
       </Box>
       
@@ -216,7 +217,7 @@ const GameFeed = (): ReactElement => {
       <div>
         <Stack direction="row" spacing={1} style=
                     {{ justifyContent: 'center' }}>
-          <Chip sx={{ borderRadius: 1, height: '6vh' }} label="#Metaverse" size="small" />
+          <Chip sx={{ borderRadius: 1, height: '4vh' }} label="#Metaverse" size="small" />
         </Stack>
       </div>
             
@@ -224,29 +225,48 @@ const GameFeed = (): ReactElement => {
       <br />
       <br />
 
-      <Stack direction="row" spacing={1} style= {{ justifyContent: 'center' }}>
-          <Box >
-          <StarBorderRoundedIcon sx={{ fontSize: '70px'}} />
-          <Typography component="div" sx={{ flexGrow: 1, fontsize: '10px' }}>Ratings</Typography>
+      <Container maxWidth="xl">
+        <Box display="flex"
+          alignItems="center"
+          justifyContent="center"
+          sx={{flexDirection: 'row'}}>
+          <Box display="flex"
+          alignItems="center"
+          justifyContent="center"
+          sx={{flexDirection: 'column',}}>
+            <StarBorderRoundedIcon sx={{fontSize: 60, color: 'lightGrey'}} />
+            <Typography variant="h6" component="div" sx={{color: 'white'}} align="center">Ratings</Typography>
+            
           </Box>
-          <Typography variant='h6' component="div" sx={{ flexGrow: 1, fontSize: '25px' }}>5/5</Typography>
-
-          <Box>
-          <PeopleAltOutlinedIcon sx={{ fontSize: '70px' }} />
-          <Typography component="div" sx={{ flexGrow: 1, fontsize: '10px' }}>Participants</Typography>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 0.05 }}></Typography>
+          <Typography variant="h3" sx={{color: "#0ACFFE"}} align="center" >32</Typography>
+        </Box>
+        <Box display="flex"
+          alignItems="center"
+          justifyContent="center"
+          sx={{flexDirection: 'row'}}>
+          <Box display="flex"
+          alignItems="center"
+          justifyContent="center"
+          sx={{flexDirection: 'column',}}>
+            <PeopleAltOutlinedIcon sx={{fontSize: 60, color: 'lightGrey'}} />
+            <Typography variant="h6" component="div" sx={{color: 'white'}} align="center">Participants</Typography>
+            
           </Box>
-          <Typography variant='h6' component="div" sx={{ flexGrow: 1, fontSize: '25px' }}>5/5</Typography>
-      </Stack>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 0.05 }}></Typography>
+          <Typography variant="h3" sx={{color: "#0ACFFE"}} align="center" >32</Typography>
+        </Box>
+        </Container>
 
       <br />
       <br />
 
-        <Container maxWidth="xl"><h2>Overview</h2></Container>
+        <Container maxWidth="xl" sx={{ color: '#0ACFFE' }}><h2>Overview</h2></Container>
 
         <Typography
           variant="body1"
           component="h4"
-          sx={{ display: 'block', paddingLeft: 5, paddingRight: 5 }}
+          sx={{ display: 'block', paddingLeft: 5, paddingRight: 5, color: 'white' }}
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
         </Typography>
@@ -255,7 +275,7 @@ const GameFeed = (): ReactElement => {
 
       <Box sx={{ width: '100%' }}>
 
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+      <Box sx={{ borderBottom: 1, borderColor: 'black' }}>
         <Tabs value={value} onChange={handleChange} aria-label="Game Feed Tabs" centered>
           <Tab label="News" {...a11yProps(0)} />
           <Tab label="User Reviews" {...a11yProps(1)} />
@@ -265,13 +285,13 @@ const GameFeed = (): ReactElement => {
       </Box>
 
       <TabPanel value={value} index={0}>
-      <Container maxWidth="xl"><h2>Trending Community News</h2></Container>
+      <Container maxWidth="xl" sx={{ color: '#0ACFFE' }}><h2>Trending Community News</h2></Container>
 <Box>
     <Container maxWidth="xl">
       <Card>
       <CardMedia
         sx={{ height: 200 }}
-        image="/static/images/cards/contemplative-reptile.jpg"
+        image="src/assets/images/popularfeed.png"
         title="popularFeed"
       />
       <CardContent>
@@ -293,16 +313,16 @@ const GameFeed = (): ReactElement => {
       </TabPanel>
 
       <TabPanel value={value} index={1}>
-    <Container maxWidth="xl"><h2>User Reviews</h2></Container>
-<Box maxWidth="xl" sx={{ mx: '7vh' }}>
-    <Card variant="outlined" sx={{ mb: '3vh'}}>{card}</Card>
-    <Card variant="outlined" sx={{ mb: '3vh'}}>{card}</Card>
-    <Card variant="outlined" sx={{ mb: '3vh'}}>{card}</Card>
+    <Container maxWidth="xl" sx={{ color: '#0ACFFE' }}><h2>User Reviews</h2></Container>
+<Box maxWidth="xl" sx={{ mx: '5vh' }}>
+    <Card variant="outlined" sx={{ mb: '2vh' }}>{card}</Card>
+    <Card variant="outlined" sx={{ mb: '2vh'}}>{card}</Card>
+    <Card variant="outlined" sx={{ mb: '2vh'}}>{card}</Card>
 </Box>
       </TabPanel>
 
       <TabPanel value={value} index={2}>
-      <Container maxWidth="xl"><h2>Leaderboards</h2></Container>
+      <Container maxWidth="xl" sx={{ color: '#0ACFFE' }}><h2>Leaderboards</h2></Container>
 
 <Paper sx={{ overflow: 'hidden', ml: '7vh', mr: '7vh' }}>
       <TableContainer sx={{ maxHeight: 320 }}>
@@ -347,24 +367,26 @@ const GameFeed = (): ReactElement => {
       </TabPanel>
 
       <TabPanel value={value} index={3}>
-        <Container maxWidth="xl"><h2>Data Dashboards</h2></Container>
+        <Container maxWidth="xl" sx={{ color: '#0ACFFE' }}><h2>Data Dashboards</h2></Container>
       </TabPanel>
 
       </Box>
 
 <br />
 
-<Box sx={{ '& > :not(style)': { m: 1 }, position: 'fixed', bottom: 0 }} style={{ justifyContent: 'center' }}>
-<Fab variant="extended" sx={{ height: '10vh', mx: 'auto', minWidth: '79vh'}}
+<Container maxWidth="xl">
+<Box sx={{ '& > :not(style)': { m: 1 }, position: 'fixed', bottom: 0 }} style={{ justifyContent: 'center', zIndex: 'tooltip' }}>
+<Fab variant="extended" sx={{ height: '8vh', mx: 'auto', minWidth: '46vh' }}
 onClick={() => { alert('Comming Soon') }}>
   Play
 </Fab>
 </Box>
+</Container>
 
 <br />
 <br />
 
-<Container maxWidth="xl"><h2>User Reviews</h2></Container>
+<Container maxWidth="xl" sx={{ color: '#0ACFFE' }}><h2>User Reviews</h2></Container>
 
 <Box maxWidth="xl" sx={{ mx: '7vh' }}>
     <Card variant="outlined" sx={{ mb: '3vh'}}>{card}</Card>
@@ -375,7 +397,7 @@ onClick={() => { alert('Comming Soon') }}>
 <br />
 <br />
 
-<Container maxWidth="xl"><h2>Leaderboards</h2></Container>
+<Container maxWidth="xl" sx={{ color: '#0ACFFE' }}><h2>Leaderboards</h2></Container>
 
 <Paper sx={{ overflow: 'hidden', ml: '7vh', mr: '7vh' }}>
       <TableContainer sx={{ maxHeight: 320 }}>
@@ -421,7 +443,7 @@ onClick={() => { alert('Comming Soon') }}>
 <br />
 <br />
 
-<Container maxWidth="xl" sx={{ display: 'none', displayPrint: 'block' }}>
+<Container maxWidth="xl" sx={{ display: 'none', displayPrint: 'block', color: '#0ACFFE' }}>
   <h2>Data Dashboards</h2>
   <Box sx={{border:1}}>
   <ResponsiveContainer>
@@ -469,6 +491,7 @@ onClick={() => { alert('Comming Soon') }}>
       </Box>
   </Container>
   </React.Fragment>
+  </Box>
   );
 }
 
