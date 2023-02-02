@@ -8,7 +8,7 @@ import Explorer from './Explorer';
 import MyGames from './MyGames';
 import Community from './Community';
 import SmartContract from './SmartContract';
-import APITest from './APITest';
+import Firebase from './db/Firebase';
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
 					<Route path="/mygames/*" element={<MyGames />}></Route>
 					<Route path="/community/*" element={<Community />}></Route>
 					<Route path="/smartcontract/*" element={<SmartContract />}></Route>
-					<Route path="/apitest/*" element={<APITest />}></Route>
+					<Route path="/firebase/*" element={<Firebase/>}></Route>
 					{/* 상단에 위치하는 라우트들의 규칙을 모두 확인, 일치하는 라우트가 없는경우 처리 */}
 					<Route path="*" element={<NotFound />}></Route>
 				</Routes>
