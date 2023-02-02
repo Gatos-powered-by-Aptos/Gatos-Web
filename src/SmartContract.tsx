@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 const NODE_URL = "https://fullnode.devnet.aptoslabs.com";
 const client = new AptosClient(NODE_URL);
 
-function Wallet() {
+function SmartContract() {
     const { account } = useWallet(); 
 
     useEffect(() => {
@@ -33,8 +33,17 @@ function Wallet() {
         }
       };
 
+    const getBalance = async () => {
+      const balance = await client.getAccount(
+      "0x7b95ccef123058430cfc4937b30ef862e2e0011348684ae937ab4c58a4f5a849",
+      );
+      console.log(balance)
+      console.log(balance.sequence_number)
+    }
+
     return (
     <>
+    <button type="button" onClick={getBalance}></button>
       <Layout>
         <Row align="middle">
           <Col span={10} offset={2}>
@@ -58,4 +67,4 @@ function Wallet() {
   );
   }
   
-  export default Wallet;
+  export default SmartContract;
