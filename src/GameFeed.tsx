@@ -200,7 +200,8 @@ const GameFeed = (): ReactElement => {
       <br></br>
       <br></br>
 
-      <Box sx={{ borderRadius: '50%', bgcolor: '#cfe8fc', height: '70vh', width: '70vh', mx: 'auto' }}></Box>
+      <Box sx={{ borderRadius: '50%', bgcolor: '#cfe8fc', height: '70vh', width: '70vh', mx: 'auto' }}>
+      </Box>
 
       <br />
       <Box sx={{ mx: 'auto' }}>
