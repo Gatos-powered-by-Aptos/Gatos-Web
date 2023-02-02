@@ -26,6 +26,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { positions } from '@mui/system';
+import popularfeed from './assets/images/popularfeed.png';
 
 
 import '@fontsource/roboto/300.css';
@@ -239,7 +240,7 @@ const GameFeed = (): ReactElement => {
             
           </Box>
           <Typography variant="h6" component="div" sx={{ flexGrow: 0.05 }}></Typography>
-          <Typography variant="h3" sx={{color: "#0ACFFE"}} align="center" >32</Typography>
+          <Typography variant="h3" sx={{color: "#0ACFFE"}} align="center" >5/5</Typography>
         </Box>
         <Box display="flex"
           alignItems="center"
@@ -254,7 +255,7 @@ const GameFeed = (): ReactElement => {
             
           </Box>
           <Typography variant="h6" component="div" sx={{ flexGrow: 0.05 }}></Typography>
-          <Typography variant="h3" sx={{color: "#0ACFFE"}} align="center" >32</Typography>
+          <Typography variant="h3" sx={{color: "#0ACFFE"}} align="center" >4928</Typography>
         </Box>
         </Container>
 
@@ -295,6 +296,9 @@ const GameFeed = (): ReactElement => {
         title="popularFeed"
       />
       <CardContent>
+      <div className="c1image">
+                          <img src={popularfeed} alt="News"  />
+                      </div>
         <Typography gutterBottom variant="h5" component="div">
           Lizard
         </Typography>
