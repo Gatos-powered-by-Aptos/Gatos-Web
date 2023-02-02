@@ -14,8 +14,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
 import AddIcon from '@mui/icons-material/Add';
+import EditIcon from '@mui/icons-material/Edit';
+import gatosLogo from './assets/images/GATOS.png';
 
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design"; 
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
@@ -23,16 +26,25 @@ import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
 import { AptosClient } from "aptos"; 
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { useState, useEffect } from "react";
-import { Height } from '@mui/icons-material';
+import { Height, Opacity } from '@mui/icons-material';
 
 const NODE_URL = "https://fullnode.devnet.aptoslabs.com";
 const client = new AptosClient(NODE_URL);
 
 const SmallAvatar = styled(Avatar)(({ theme }) => ({
-  width: 20,
-  height: 20,
-  border: `2px solid #0ACFFE`,
+  width: 12,
+  height: 12,
+  border: `1px solid #0ACFFE`,
 }));
+
+const bull = (
+  <Box
+    component="span"
+    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+  >
+    •
+  </Box>
+);
 
 export default function Explorer() {
   
@@ -71,11 +83,14 @@ export default function Explorer() {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }}
+            sx={{ mr: 0 }}
           >
-            <MenuIcon/>
+            <MenuIcon sx={{color:'#0ACFFE'}}/>
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, letterSpacing: 17 }}>GATOS</Typography>
+          <div>
+            <img src={gatosLogo} alt="logo" width="80vw"/>
+          </div>
+          <Box sx={{width:'500vw'}}></Box>
           <WalletSelector/>
         </Toolbar>
       </AppBar>
@@ -92,62 +107,221 @@ export default function Explorer() {
         overlap="circular"
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         badgeContent={
-          <SmallAvatar>
-            <Button variant="text"
-            sx={{color: 'inherit'}}
-            ><AddIcon/></Button>
+          <SmallAvatar sx={{backgroundColor:'#0ACFFE'}}>
+            <Button
+            sx={{color: 'black',}}
+            ><EditIcon sx={{fontSize: 11}}/></Button>
           </SmallAvatar>
         }
       >
-        <Avatar sx={{width: 100, height: 100, border: '3px solid #0ACFFE'}} alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+        <Avatar sx={{backgroundColor:'black',width: 100, height: 100, border: '1px solid #0ACFFE'}}  />
       </Badge>
       </Box>
       <br></br>
-      <Typography variant="h5" component="div" sx={{ flexGrow: 1, color: 'white' }} align="center">User name</Typography>
+      <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: 'white', fontWeight:'bold' }} align="center">User name</Typography>
       <Typography variant="body1" component="div" sx={{ flexGrow: 1, color: 'white' }} align="center">afbb51e46e0f5579ad71ea46c</Typography>
       </Container>
+
       <br></br>
+      <br></br>
+      <br></br>
+
+      <Container maxWidth="xl" sx={{ bgcolor: 'black' }}>
+        <Typography
+          sx={{ color: '#0ACFFE', fontWeight: '600', mb: 2, fontSize: '16px' }}
+        >
+          Overview
+        </Typography>
+        <Grid container spacing={0.5}>
+          <Grid item xs={0.3}></Grid>
+          <Grid item xs={3.9}>
+            <Box
+              sx={{
+                border: '1px solid #3742AC',
+                borderRadius: '5px',
+                width: '100px',
+                height: '100px',
+                mr: 2,
+              }}
+            >
+              <Box sx={{ mb: 3 }}></Box>
+              <Typography
+                align="center"
+                sx={{ color: '#0ACFFE', fontSize: '30px' }}
+              >
+                32
+              </Typography>
+              <Box sx={{ mb: 0.5 }}></Box>
+              <Typography
+                align="center"
+                sx={{ opacity: 0.6, color: 'white', fontSize: '11px' }}
+              >
+                GATOS Level
+              </Typography>
+            </Box>
+          </Grid>
+
+          <Grid item xs={3.9}>
+            <Box
+              sx={{
+                border: '1px solid #3742AC',
+                borderRadius: '5px',
+                width: '100px',
+                height: '100px',
+                mr: 2,
+              }}
+            >
+              <Box sx={{ mb: 3 }}></Box>
+              <Typography
+                align="center"
+                sx={{ color: '#0ACFFE', fontSize: '30px' }}
+              >
+                5
+              </Typography>
+              <Box sx={{ mb: 0.5 }}></Box>
+              <Typography
+                align="center"
+                sx={{ opacity: 0.6, color: 'white', fontSize: '11px' }}
+              >
+                Games with us
+              </Typography>
+            </Box>
+          </Grid>
+
+          <Grid item xs={3.9}>
+            <Box
+              sx={{
+                border: '1px solid #3742AC',
+                borderRadius: '5px',
+                width: '100px',
+                height: '100px',
+                mr: 2,
+              }}
+            >
+              <Box sx={{ mb: 3 }}></Box>
+              <Typography
+                align="center"
+                sx={{ color: '#0ACFFE', fontSize: '30px' }}
+              >
+                42
+              </Typography>
+              <Box sx={{ mb: 0.5 }}></Box>
+              <Typography
+                align="center"
+                sx={{ opacity: 0.6, color: 'white', fontSize: '11px' }}
+              >
+                Posts
+              </Typography>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+      <br/>
+
 
       <Container maxWidth="xl">
-        <Box display="flex"
-          alignItems="center"
-          justifyContent="center"
-          sx={{flexDirection: 'row'}}>
-          <Box display="flex"
-          alignItems="center"
-          justifyContent="center"
-          sx={{flexDirection: 'column',}}>
-            <WorkspacePremiumOutlinedIcon sx={{fontSize: 60, color: 'lightGrey'}} />
-            <Typography variant="h6" component="div" sx={{color: 'white'}} align="center">Gatos Level</Typography>
-            
-          </Box>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 0.05 }}></Typography>
-          <Typography variant="h3" sx={{color: "#0ACFFE"}} align="center" >32</Typography>
-        </Box>
-        </Container>
+        <Typography
+          sx={{ color: '#0ACFFE', fontWeight: '600', mb: 2, fontSize: '16px' }}
+        >
+          Posts
+        </Typography>
+        <Card
+          sx={{
+            borderRadius: '10px',
+            Width: '350px',
+            Height: '128px',
+            bgcolor: 'black',
+            border: '1px solid #3742AC',
+          }}
+        >
+          <CardContent>
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent="flex-start"
+              sx={{ flexDirection: 'row' }}
+            >
+              <Grid container spacing={1}>
+                <Grid item xs={2.5}>
+                  <Avatar
+                    sx={{
+                      bgcolor:'black',
+                      border: '1px solid #495AFF',
+                      width: '50px',
+                      height: '50px',
+                      mb: 1.5,
+                      mr: 2,
+                    }}
+                  ></Avatar>
+                </Grid>
+                <Grid item xs={6.5}>
+                  <Box
+                    display="flex"
+                    alignItems="flex-start"
+                    justifyContent="flex-start"
+                    sx={{ flexDirection: 'column' }}
+                  >
+                    <Typography
+                      sx={{ fontSize: 14, color: 'white', fontWeight: 'light' }}
+                    >
+                      Username001
+                    </Typography>
+                    <Typography
+                      sx={{
+                        fontSize: 10,
+                        color: 'white',
+                        opacity: '60%',
+                        fontWeight: 'light',
+                        mb: 2,
+                      }}
+                    >
+                      2/1/2022
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={3}>
+                  <Button
+                    sx={{
+                      width: '80px',
+                      height: '24px',
+                      color: '#495AFF',
+                      bgcolor: 'white',
+                      fontSize: '10px',
+                      align: 'center',
+                    }}
+                    variant="contained"
+                  >
+                    Gametitle
+                  </Button>
+                </Grid>
+              </Grid>
+            </Box>
 
-      <br></br>
-      <br></br>
-      <br></br>
-
-      
-      
+            <Typography sx={{ fontSize: 14 }} color="white" gutterBottom>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </Typography>
+          </CardContent>
+        </Card>
+      </Container>
+      <br />
       
       <Container maxWidth="xl">
-      <Typography variant="h5" sx={{color: "#0ACFFE", fontWeight: '600'}}  >Recent Played</Typography>
+      <Typography  sx={{color: "#0ACFFE", fontWeight: '600', fontSize: '16px'}}  >Recent Played</Typography>
       <br></br>
+
       <Card variant="outlined" 
-      sx={{ borderRadius: '10px',backgroundColor: 'grey'}}>
+      sx={{ height: '185px', borderRadius: '10px', border: '1px solid #0ACFFE', backgroundColor: '#2B2B2B'}}>
       <CardMedia
-        sx={{ height: 200,
+        sx={{ height: 128,
         backgroundColor: 'black',
+        borderBottom: '1px solid #0ACFFE',
         color: 'white' }}
         
         image="/assets/images/theSandboxLogo.svg"
         title="game1"
       >
-       <Typography gutterBottom variant="h5" component="div"
-            sx={{color:'white'}}>
+       <Typography 
+            sx={{color:'white',fontSize: 16, pl:2,pt:1}}>
               Game Title</Typography>
       </CardMedia>
       <CardContent>
@@ -159,36 +333,33 @@ export default function Explorer() {
               alignItems="center"
               justifyContent="center"
               sx={{flexDirection: 'column',}}>
-            <Typography gutterBottom variant="h5" component="div"
-            sx={{color:'white'}}>
+            <Typography 
+            sx={{color:'white',fontSize: 14}}>
               #3</Typography>
-            <Typography gutterBottom variant="body1" component="div"
-            sx={{color:'lightGrey'}}>
+            <Typography 
+            sx={{color:'lightGrey', fontSize: 11}}>
               Ranking</Typography>
           </Box>
         </Box>
-
       </CardContent>
-      <CardActions>
-      </CardActions>
     </Card> 
     </Container>
+    <br/>
 
     <Container maxWidth="xl">
-      <br></br>
-      <br></br>
       <Card variant="outlined" 
-      sx={{ borderRadius: '10px', backgroundColor: 'grey'}}>
+      sx={{ height: '185px', borderRadius: '10px', border: '1px solid #0ACFFE', backgroundColor: '#2B2B2B'}}>
       <CardMedia
-        sx={{ height: 200,
+        sx={{ height: 128,
         backgroundColor: 'black',
+        borderBottom: '1px solid #0ACFFE',
         color: 'white' }}
         
         image="/assets/images/theSandboxLogo.svg"
         title="game1"
       >
-        <Typography gutterBottom variant="h5" component="div"
-            sx={{color:'white'}}>
+       <Typography 
+            sx={{color:'white',fontSize: 16, pl:2,pt:1}}>
               Game Title</Typography>
       </CardMedia>
       <CardContent>
@@ -200,36 +371,29 @@ export default function Explorer() {
               alignItems="center"
               justifyContent="center"
               sx={{flexDirection: 'column',}}>
-            <Typography gutterBottom variant="h5" component="div"
-            sx={{color:'white'}}>
+            <Typography 
+            sx={{color:'white',fontSize: 14}}>
               #3</Typography>
-            <Typography gutterBottom variant="body1" component="div"
-            sx={{color:'lightGrey'}}>
+            <Typography 
+            sx={{color:'lightGrey', fontSize: 11}}>
               Ranking</Typography>
           </Box>
         </Box>
-
       </CardContent>
-      <CardActions>
-      </CardActions>
     </Card> 
     </Container>
-
+    <br/>
     <Container maxWidth="xl">
-      <br></br>
-      <br></br>
       <Card variant="outlined" 
-      sx={{ borderRadius: '10px', backgroundColor: 'grey'}}>
+      sx={{ height: '185px', borderRadius: '10px', border: '1px solid #0ACFFE', backgroundColor: '#2B2B2B'}}>
       <CardMedia
-        sx={{ height: 200,
+        sx={{ height: 128,
         backgroundColor: 'black',
+        borderBottom: '1px solid #0ACFFE',
         color: 'white' }}
-        
-        image="/assets/images/theSandboxLogo.svg"
-        title="game1"
       >
-        <Typography gutterBottom variant="h5" component="div"
-            sx={{color:'white'}}>
+       <Typography 
+            sx={{color:'white',fontSize: 16, pl:2,pt:1}}>
               Game Title</Typography>
       </CardMedia>
       <CardContent>
@@ -241,20 +405,19 @@ export default function Explorer() {
               alignItems="center"
               justifyContent="center"
               sx={{flexDirection: 'column',}}>
-            <Typography gutterBottom variant="h5" component="div"
-            sx={{color:'white'}}>
+            <Typography 
+            sx={{color:'white',fontSize: 14}}>
               #3</Typography>
-            <Typography gutterBottom variant="body1" component="div"
-            sx={{color:'lightGrey'}}>
+            <Typography 
+            sx={{color:'lightGrey', fontSize: 11}}>
               Ranking</Typography>
           </Box>
         </Box>
-
       </CardContent>
-      <CardActions>
-      </CardActions>
     </Card> 
     </Container>
+    <br/>
+
     
     </Box>
     </div>
