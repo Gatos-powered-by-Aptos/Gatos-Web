@@ -43,7 +43,6 @@ function Onchain() {
 
     return (
     <>
-    <button type="button" onClick={getBalance}></button>
       <Layout>
         <Row align="middle">
           <Col span={10} offset={2}>
@@ -55,15 +54,9 @@ function Onchain() {
         </Row>
       </Layout>
       <Typography>On-chain Test</Typography>
-      {!accountHasList && (
-      <Row gutter={[0, 32]} style={{ marginTop: "2rem" }}>
-        <Col span={8} offset={8}>
-          <Button block type="primary" style={{ height: "40px", backgroundColor: "#3f67ff" }}>
-            Add new list
-          </Button>
-        </Col>
-      </Row>
-    )}
+      <button type="button" onClick={getBalance}>
+        <h2>getBalance</h2>
+      </button>
     </>
   );
   }

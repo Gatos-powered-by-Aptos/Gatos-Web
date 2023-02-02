@@ -30,11 +30,7 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Carousel from 'react-material-ui-carousel';
-import Divider from '@mui/material/Divider';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton'
-import ListItemText from '@mui/material/ListItemText'
+
 
 
 import promotion1 from './assets/images/promotion1.jpeg';
@@ -46,13 +42,6 @@ import gatosLogo from './assets/images/GATOS.png';
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design"; 
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
 
-interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window?: () => Window;
-}
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -112,10 +101,10 @@ const bull = (
 );
 
 const drawerWidth = 240;
-const navItems = ['Home', 'Explorer', 'My Games', 'Community','Builders'];
+const navItems = ['Home', 'Explorer', 'My Games', 'Community','B'];
 
 
-export default function Explorer(props:Props) {
+export default function Explorer() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
@@ -219,32 +208,8 @@ export default function Explorer(props:Props) {
   
     );
 
-    const { window } = props;
-    const [mobileOpen, setMobileOpen] = React.useState(false);
   
-    const handleDrawerToggle = () => {
-      setMobileOpen((prevState) => !prevState);
-    };
-  
-    const drawer = (
-      <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-        <Typography variant="h6" sx={{ my: 2 }}>
-          MUI
-        </Typography>
-        <Divider />
-        <List>
-          {navItems.map((item) => (
-            <ListItem key={item} disablePadding>
-              <ListItemButton sx={{ textAlign: 'center' }}>
-                <ListItemText primary={item} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Box>
-    );
 
-    const container = window !== undefined ? () => window().document.body : undefined;
 
   
   return (
@@ -254,13 +219,13 @@ export default function Explorer(props:Props) {
       <AppBar position="static"
         sx={{backgroundColor:'black'}}>
         <Toolbar>
-            <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                edge="start"
-                onClick={handleDrawerToggle}
-                sx={{ mr: 2, display: { sm: 'none' } }}
-              >
+          <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
             <MenuIcon sx={{color:'#0ACFFE'}}/>
           </IconButton>
           <div>
@@ -494,19 +459,20 @@ export default function Explorer(props:Props) {
                 alignItems="flex-start"
                 sx={{ flexDirection: 'column' }}
               >
-                <Box sx={{mb:1.2}}>
-                <img src={promotion1} alt="banner1" style={{maxWidth: "100%"}} />
+                <Box>
                 </Box>
                 <Card
                   sx={{
-                    width: '100px',
-                    height: '100px',
+                    width: '100%',
+                    height: '150px',
                     display: 'flex',
                     backgroundColor: '#424242',
                     borderRadius: '10px',
                     border: '1px solid #0ACFFE',
                   }}
-                ></Card>
+                >
+                   <img src={promotion1} alt="banner1" style={{maxWidth: "100%", height:"100%"}} />
+                </Card>
               </Box>
             
           </Grid>
@@ -643,19 +609,19 @@ export default function Explorer(props:Props) {
                 alignItems="flex-start"
                 sx={{ flexDirection: 'column' }}
               >
-                <Box sx={{mb:1.2}}>
-                <img src={promotion4} alt="banner1" style={{maxWidth: "100%"}} />
-                </Box>
+                <Box ></Box>
                 <Card
                   sx={{
-                    width: '100px',
-                    height: '100px',
+                    width: '100%',
+                    height: '150px',
                     display: 'flex',
                     backgroundColor: '#424242',
                     borderRadius: '10px',
                     border: '1px solid #0ACFFE',
                   }}
-                ></Card>
+                >
+                   <img src={promotion4} alt="banner1" style={{maxWidth: "100%", height:"100%"}} />
+                </Card>
               </Box>
             
           </Grid>
@@ -792,19 +758,19 @@ export default function Explorer(props:Props) {
                 alignItems="flex-start"
                 sx={{ flexDirection: 'column' }}
               >
-                <Box sx={{mb:1.2}}>
-                <img src={promotion2} alt="banner1" style={{maxWidth: "100%"}} />
-                </Box>
+                <Box></Box>
                 <Card
                   sx={{
-                    width: '100px',
-                    height: '100px',
+                    width: '100%',
+                    height: '150px',
                     display: 'flex',
                     backgroundColor: '#424242',
                     borderRadius: '10px',
                     border: '1px solid #0ACFFE',
                   }}
-                ></Card>
+                >
+                   <img src={promotion2} alt="banner1" style={{maxWidth: "100%", height:"100%"}} />
+                </Card>
               </Box>
             
           </Grid>
