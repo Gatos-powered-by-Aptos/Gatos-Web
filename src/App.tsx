@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Wallet from './Wallet'
-import NotFound from './NotFound'
-import GameFeed from './GameFeed'
-import Explorer from './Explorer';
-import MyGames from './MyGames';
-import Community from './Community';
-import Onchain from './Onchain';
+import Wallet from './test/Wallet'
+import NotFound from './Components/NotFound'
+import GameFeed from './Components/GameFeed'
+import Explorer from './Components/Explorer';
+import MyGames from './Components/MyGames';
+import Community from './Components/Community';
+import Onchain from './Components/Test';
 
 function App() {
   return (

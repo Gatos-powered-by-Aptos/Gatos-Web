@@ -33,11 +33,11 @@ import Carousel from 'react-material-ui-carousel';
 import { Link } from "react-router-dom";
 
 
-import promotion1 from './assets/images/promotion1.jpeg';
-import promotion2 from './assets/images/promotion2.png';
-import promotion3 from './assets/images/promotion3.png';
-import promotion4 from './assets/images/promotion4.jpeg';
-import gatosLogo from './assets/images/GATOS.png';
+import promotion1 from '../assets/images/promotion1.jpeg';
+import promotion2 from '../assets/images/promotion2.png';
+import promotion3 from '../assets/images/promotion3.png';
+import promotion4 from '../assets/images/promotion4.jpeg';
+import gatosLogo from '../assets/images/GATOS.png';
 
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design"; 
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";

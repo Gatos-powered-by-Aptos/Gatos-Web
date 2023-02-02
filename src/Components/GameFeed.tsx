@@ -25,12 +25,13 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { positions } from '@mui/system';
-import popularfeed from './assets/images/popularfeed1.png';
-import gatoslogo from './assets/images/gatoslogo1.png';
-import userreview from './assets/images/review.png';
-import gameimg from './assets/images/gamefeedimg.png';
-import ddb1 from './assets/images/dashboard1.png';
-import ddb2 from './assets/images/dashboard2.png';
+
+import popularfeed from '../assets/images/popularfeed1.png';
+import gatoslogo from '../assets/images/gatoslogo1.png';
+import userreview from '../assets/images/review.png';
+import gameimg from '../assets/images/gamefeedimg.png';
+import ddb1 from '../assets/images/dashboard1.png';
+import ddb2 from '../assets/images/dashboard2.png';
 
 
 import '@fontsource/roboto/300.css';

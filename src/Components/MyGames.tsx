@@ -18,7 +18,7 @@ import Grid from '@mui/material/Grid';
 import WorkspacePremiumOutlinedIcon from '@mui/icons-material/WorkspacePremiumOutlined';
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
-import gatosLogo from './assets/images/GATOS.png';
+import gatosLogo from '../assets/images/GATOS.png';
 import { Link } from 'react-router-dom';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -32,9 +32,9 @@ import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { useState, useEffect } from "react";
 import { Height, Opacity } from '@mui/icons-material';
 
-import promotion1 from './assets/images/promotion1.jpeg';
-import promotion2 from './assets/images/aptosflip.jpeg';
-import promotion4 from './assets/images/promotion4.jpeg';
+import promotion1 from '../assets/images/promotion1.jpeg';
+import promotion2 from '../assets/images/aptosflip.jpeg';
+import promotion4 from '../assets/images/promotion4.jpeg';
 
 const NODE_URL = "https://fullnode.devnet.aptoslabs.com";
 const client = new AptosClient(NODE_URL);
@@ -384,8 +384,6 @@ export default function Explorer() {
         backgroundColor: 'black',
         borderBottom: '1px solid #0ACFFE',
         color: 'white' }}
-        
-        image="/assets/images/promotion1.jpeg"
         title="game1"
       >
       
@@ -424,8 +422,6 @@ export default function Explorer() {
         backgroundColor: 'black',
         borderBottom: '1px solid #0ACFFE',
         color: 'white' }}
-        
-        image="/assets/images/theSandboxLogo.svg"
         title="game1"
       >
         <Typography 

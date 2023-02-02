@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 const NODE_URL = "https://fullnode.devnet.aptoslabs.com";
 const client = new AptosClient(NODE_URL);
 
-function Onchain() {
+function Test() {
     const { account } = useWallet(); 
 
     useEffect(() => {
@@ -61,4 +61,4 @@ function Onchain() {
   );
   }
   
-  export default Onchain;
+  export default Test;

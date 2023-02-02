@@ -26,7 +26,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
-import popularfeed from './assets/images/popularfeed.png';
+import popularfeed from '../assets/images/popularfeed.png';
 
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design"; 
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
