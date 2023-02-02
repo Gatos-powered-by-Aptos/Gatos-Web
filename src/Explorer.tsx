@@ -25,15 +25,13 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { flexbox } from '@mui/system';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design"; 
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
-
-import { AptosClient } from "aptos"; 
-import { useWallet } from "@aptos-labs/wallet-adapter-react";
-import { useState, useEffect } from "react";
-
-const NODE_URL = "https://fullnode.devnet.aptoslabs.com";
-const client = new AptosClient(NODE_URL);
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -91,6 +89,12 @@ const bull = (
     •
   </Box>
 );
+
+
+
+
+
+
 
 export default function Explorer() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -192,32 +196,15 @@ export default function Explorer() {
     
   );
 
-  const { account } = useWallet(); 
 
-    useEffect(() => {
-        fetchList();
-      }, [account?.address]);
-    const [accountHasList, setAccountHasList] = useState<boolean>(false);
 
-    const fetchList = async () => {
-        if (!account) return [];
-        // change this to be your module account address
-        const moduleAddress = "스마트 컨트렉트 배포 주소 ";
-        try {
-          const TodoListResource = await client.getAccountResource(
-            account.address,
-            `${moduleAddress}::main::TodoList`
-          );
-          setAccountHasList(true);
-        } catch (e: any) {
-          setAccountHasList(false);
-        }
-      };
+
   
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1, backgroundColor:'black'}}>
       <Container maxWidth="xl">
-      <AppBar position="static" >
+      <AppBar position="static"
+        sx={{backgroundColor:'black'}}>
         <Toolbar>
           <IconButton
             size="large"
@@ -228,8 +215,8 @@ export default function Explorer() {
           >
             <MenuIcon/>
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}></Typography>
-          <WalletSelector />
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, letterSpacing: 17 }}>GATOS</Typography>
+          <WalletSelector/>
         </Toolbar>
       </AppBar>
       </Container>
@@ -237,19 +224,30 @@ export default function Explorer() {
       <br></br>
       <br></br>
 
-      <CssBaseline />
-      <Container maxWidth="xl">
-        <Box sx={{ bgcolor: '#cfe8fc', height: '50vh' }}>Promotion</Box>
+      <Container maxWidth="sm">
+        <Box 
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        sx={{ bgcolor: '#cfe8fc', height: '50vh', borderRadius: '10px' }}>
+        <Typography variant="h5" component="div" sx={{ flexGrow: 1}} align="center">Promotion</Typography>
+        </Box>
       </Container>
       
       <br></br>
       <br></br>
-
-      <Container maxWidth="xl"><h3>Top Rated</h3></Container>
+      <br></br>
+      
       <Container maxWidth="xl">
-      <AppBar position="static">
+        <Typography variant="h5" sx={{color: "#0ACFFE", fontWeight: '600'}} >Top Rated</Typography>
+      </Container>
+
+      <br></br>
+      <Container maxWidth="xl">
+      <AppBar position="static"
+        sx={{backgroundColor:'black'}}>
         <Toolbar>
-          <Search>
+          <Search sx={{borderRadius: '30px', border: `1px solid #0ACFFE`}}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
@@ -259,7 +257,7 @@ export default function Explorer() {
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={{ display: { xs: 'none', md: 'flex'} }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
                 <MailIcon />
@@ -300,30 +298,48 @@ export default function Explorer() {
           </Box>
         </Toolbar>
       </AppBar>
-      </Container>
+    </Container>
+
       {renderMobileMenu}
       {renderMenu}
 
       <br></br>
       <Container maxWidth="xl">
-      <Grid container spacing={2}>
-        <Grid item xs={4}>
-          <Item>Genre1</Item>
+      <Grid container spacing={1}>
+        <Grid item xs={3.5}>
+          <Item
+          sx={{backgroundColor: 'white', color: "#495AFF"}}
+          >#Metaverse</Item>
         </Grid>
-        <Grid item xs={4}>
-          <Item>Genre2</Item>
+        <Grid item xs={3.5}>
+          <Item
+          sx={{backgroundColor: '#495AFF', opacity:0.35, color: "white"}}
+          >#Adventure</Item>
         </Grid>
-        <Grid item xs={4}>
-          <Item>Genre3</Item>
+        <Grid item xs={2}>
+          <Item
+          sx={{backgroundColor: '#495AFF', opacity:0.35, color: "white"}}
+          >#card</Item>
         </Grid>
-        <Grid item xs={4}>
-          <Item>Genre4</Item>
+        <Grid item xs={2}>
+          <Item
+          sx={{backgroundColor: '#495AFF', opacity:0.35, color: "white"}}
+          >#Idle</Item>
         </Grid>
-        <Grid item xs={4}>
-          <Item>Genre5</Item>
+        <Grid item xs={3}>
+          <Item
+          sx={{backgroundColor: '#495AFF', opacity:0.35, color: "white"}}
+          >#Sports</Item>
         </Grid>
-        <Grid item xs={4}>
-          <Item>Genre6</Item>
+        <Grid item xs={2}>
+          <Item
+          sx={{backgroundColor: '#495AFF', opacity:0.35, color: "white"}}
+          >#RPG</Item>
+        </Grid>
+        <Grid item xs={2.3}>
+          <Item
+          sx={{backgroundColor: '#495AFF', opacity:0.35, color: "white"}}
+          >#Moba</Item>
         </Grid>
       </Grid>
     </Container>
@@ -331,77 +347,57 @@ export default function Explorer() {
       <br></br>
 
     <Container maxWidth="xl">
-      <Card sx={{ minWidth: 275, display: 'flex' }}>
+      <Card sx={{ minWidth: 275, display: 'flex', backgroundColor: "#424242", borderRadius: '10px', border: '1px solid #0ACFFE'}}>
         <Box sx={{display: 'flex', flexDirection: 'column'}}>
           <CardContent sx={{flex: '1 0 auto'}}>
             <Typography variant="h5" component="div">
-            Game Title #Genre
+              <Box sx={{fontWeight:'600', color:'white'}}>Game Title</Box>
             </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-            5.0 / 776 users
+
+            <Typography variant="h6" sx={{  }} color="lightGrey">
+              <Box sx={{fontWeight:'light'}}>
+              #Metaverse
+              </Box>
             </Typography>
+
+            <Box sx={{mb: 3}}></Box>
+
+            <Box display="flex"
+              alignItems="center"
+              justifyContent="center"
+              sx={{flexDirection: 'row'}}>
+              <Box display="flex"
+              alignItems="center"
+              justifyContent="center"
+              sx={{flexDirection: 'column',}}>
+                <Typography variant="h5" component="div" sx={{color: 'white'}} align="center">5.0</Typography>
+                <Typography variant="h6" component="div" sx={{color: 'grey', fontWeight: 'light'}} align="center">Rating</Typography>
+              </Box>
+              <Box display="flex"
+              alignItems="center"
+              justifyContent="center"
+              sx={{flexDirection: 'column', pl: 2}}></Box>
+              <Box display="flex"
+              alignItems="center"
+              justifyContent="center"
+              sx={{flexDirection: 'column',}}>
+                <Typography variant="h5" component="div" sx={{color: 'white'}} align="center">5.0</Typography>
+                <Typography variant="h6" component="div" sx={{color: 'grey', fontWeight: 'light'}} align="center">Rating</Typography>
+              </Box>
+            </Box>
+
+
           </CardContent>
           <CardActions>
-            <Button size="small" variant="outlined">1 Apt</Button>
+            <Button size="small" variant="outlined">Reward</Button>
           </CardActions>
         </Box> 
-  
-        <Box sx={{display: 'flex'}}>
-          <CardMedia
-            component="img"
-            sx={{ width: 151 }}
-            image="/asset/theSandboxLogo.svg"
-            alt="theSandboxLogo"/>
-        </Box>
-      
-    </Card>
-
-
-
-    <br></br>
-    <Card sx={{ maxWidth: 275 }}>
-      <CardContent>
-        <Typography variant="h5" component="div">
-         Game Title #Genre
-        </Typography>
-        <Typography sx={{ ㅊ: 1.5 }} color="text.secondary">
-        5.0 / 776 users
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small" variant="outlined">1 Apt</Button>
-      </CardActions>
-    </Card>
-      <br></br>
-      <Card sx={{ minWidth: 275 }}>
-      <CardContent>
-        <Typography variant="h5" component="div">
-         Game Title #Genre
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        5.0 / 776 users
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small" variant="outlined">1 Apt</Button>
-      </CardActions>
-    </Card>
-      <br></br>
-      <Card sx={{ minWidth: 275 }}>
-      <CardContent>
-        <Typography variant="h5" component="div">
-         Game Title #Genre
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        5.0 / 776 users
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small" variant="outlined">1 Apt</Button>
-      </CardActions>
-    </Card>
-      <br></br>
+      </Card>
     </Container>
+    
+
+
+
     </Box>
     
   );

@@ -36,13 +36,12 @@ import { ReactElement } from 'react';
 import { IconButton, Tab, Toolbar } from '@mui/material';
 import Tabs from '@mui/material/Tabs';
 
-/*
-import useMoveScroll from './hooks/useMoveScroll';
-// 유진아 위에 navbar은 연우가 만들었고 어차피 wallet adapter 갔다 쓸거여서 밑에 내용 먼저 만들면 될 것 같아!
-// game feed 주소 뒤에 붙는 게임 명으로 라우팅해야됨 - 주원 
-*/
+import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
+import { useTheme } from '@mui/material/styles';
 
-
+//https://github.com/mui/material-ui/blob/v5.11.7/docs/data/material/getting-started/templates/dashboard/Chart.tsx 
+// 데이터 대시보드 구현 참고 레퍼런스 
+// 샘플 차트 페이지: https://mui.com/material-ui/getting-started/templates/dashboard/ 
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -140,29 +139,24 @@ const rows = [
   createData(10, 'Username010', 214)
 ];
 
+function createDashboardData(time: string, amount?: number) {
+  return { time, amount };
+}
+
+const data = [
+  createDashboardData('00:00', 0),
+  createDashboardData('03:00', 300),
+  createDashboardData('06:00', 600),
+  createDashboardData('09:00', 800),
+  createDashboardData('12:00', 1500),
+  createDashboardData('15:00', 2000),
+  createDashboardData('18:00', 2400),
+  createDashboardData('21:00', 2400),
+  createDashboardData('24:00', undefined),
+];
 
 
 const GameFeed = (): ReactElement => {
-
-  /*
-  const goodsTabs = {
-    0: useMoveScroll('News'),
-    1: useMoveScroll('Reviews'),
-    2: useMoveScroll('Leader Boards'),
-    3: useMoveScroll('Data Dashboards'),
-    length: 4,
-  };
-
-  Array.from(goodsTabs).map((tab, index) => {
-    console.log(tab.name, index)
-  })
-
-  const tapRef = useRef<HTMLDivElement>(null);
-  
-  const onTapClick = () => {
-    tapRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-  */
 
   const [value, setValue] = React.useState(0);
 
@@ -173,10 +167,11 @@ const GameFeed = (): ReactElement => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
-
+  // data dashboard 
+  const theme = useTheme();
 
   return (
-    <>
+    <React.Fragment>
         <AppBar position='static'>
           <Toolbar>
             <IconButton
@@ -200,11 +195,15 @@ const GameFeed = (): ReactElement => {
       <br></br>
       <br></br>
 
+<<<<<<< HEAD
       <Box sx={{ borderRadius: '50%', bgcolor: '#cfe8fc', height: '70vh', width: '70vh', mx: 'auto' }}>
       </Box>
+=======
+      <Box sx={{ borderRadius: '50%', bgcolor: '#cfe8fc', height: '30vh', width: '30vh', mx: 'auto' }}></Box>
+>>>>>>> 038012bfd53c8b8ccb26c60c4639acbfa4d37672
 
       <br />
-      <Box sx={{ mx: 'auto' }}>
+      <Box sx={{ mr: 'auto' }}>
       <Typography
           textAlign="center"
           variant="h4"
@@ -228,8 +227,8 @@ const GameFeed = (): ReactElement => {
       <br />
 
       <Stack direction="row" spacing={1} style= {{ justifyContent: 'center' }}>
-          <Box>
-          <StarBorderRoundedIcon sx={{ fontSize: '70px' }} />
+          <Box >
+          <StarBorderRoundedIcon sx={{ fontSize: '70px'}} />
           <Typography component="div" sx={{ flexGrow: 1, fontsize: '10px' }}>Ratings</Typography>
           </Box>
           <Typography variant='h6' component="div" sx={{ flexGrow: 1, fontSize: '25px' }}>5/5</Typography>
@@ -358,7 +357,8 @@ const GameFeed = (): ReactElement => {
 <br />
 
 <Box sx={{ '& > :not(style)': { m: 1 }, position: 'fixed', bottom: 0 }} style={{ justifyContent: 'center' }}>
-<Fab variant="extended" sx={{ height: '10vh', mx: 'auto', minWidth: '79vh'}}>
+<Fab variant="extended" sx={{ height: '10vh', mx: 'auto', minWidth: '79vh'}}
+onClick={() => { alert('Comming Soon') }}>
   Play
 </Fab>
 </Box>
@@ -423,10 +423,54 @@ const GameFeed = (): ReactElement => {
 <br />
 <br />
 
-<Container maxWidth="xl"><h2>Data Dashboards</h2></Container>
-
-
-</>
+<Container maxWidth="xl" sx={{ display: 'none', displayPrint: 'block' }}>
+  <h2>Data Dashboards</h2>
+  <Box sx={{border:1}}>
+  <ResponsiveContainer>
+    <>
+        <LineChart
+          data={data}
+          margin={{
+            top: 16,
+            right: 16,
+            bottom: 0,
+            left: 24,
+          }}
+        >
+          <XAxis
+            dataKey="time"
+            stroke={theme.palette.text.secondary}
+            style={theme.typography.body2}
+          />
+          <YAxis
+            stroke={theme.palette.text.secondary}
+            style={theme.typography.body2}
+          >
+            <Label
+              angle={270}
+              position="left"
+              style={{
+                textAnchor: 'middle',
+                fill: theme.palette.text.primary,
+                ...theme.typography.body1,
+              }}
+            >
+              Sales ($)
+            </Label>
+          </YAxis>
+          <Line
+            isAnimationActive={false}
+            type="monotone"
+            dataKey="amount"
+            stroke={theme.palette.primary.main}
+            dot={false}
+          />
+        </LineChart>
+        </>
+      </ResponsiveContainer>
+      </Box>
+  </Container>
+  </React.Fragment>
   );
 }
 
