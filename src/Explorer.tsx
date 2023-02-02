@@ -1,4 +1,5 @@
 import * as React from 'react';
+import Button from '@mui/material/Button';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -17,6 +18,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -30,6 +32,10 @@ import Select from '@mui/material/Select';
 import Carousel from 'react-material-ui-carousel'
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3e0e44802c6c8987148f2e30c7781470e921842f
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design"; 
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
 
@@ -419,6 +425,8 @@ export default function Explorer() {
         </Box> 
       </Card>
     </Container>
+    
+
 
 
     </Box>
