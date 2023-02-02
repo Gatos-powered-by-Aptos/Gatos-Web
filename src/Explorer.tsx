@@ -29,13 +29,12 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import Carousel from 'react-material-ui-carousel'
+import Carousel from 'react-material-ui-carousel';
 
+import promotion1 from './assets/images/promotion1.jpeg';
+import promotion2 from './assets/images/promotion2.png';
+import promotion3 from './assets/images/promotion3.png';
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 3e0e44802c6c8987148f2e30c7781470e921842f
 import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design"; 
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
 
@@ -96,21 +95,6 @@ const bull = (
     •
   </Box>
 );
-
-
-
-var items = [
-  {
-    imgAddress:"src/assets/images/promotion1.jpeg"
-  },
-  {
-    imgAddress:"src/assets/images/promotion2.png"
-  },
-  {
-    imaAddress: "src/assets/images/promotion3.png"
-  }
-];
-
 
 
 export default function Explorer() {
@@ -245,15 +229,17 @@ export default function Explorer() {
       <br></br>
       <br></br>
 
+
       <Carousel>
-        {
-        items.map(
-            (item, i) =>
-                <div style={{width: '100%', height: 'auto'}} >
-                    <img src={item.imgAddress} style={{width: '100%', height: 'auto'}} />
-                </div>
-        )
-        }   
+          <div className="c1image">
+            <img src={promotion1} alt="banner1" style={{maxWidth: "100%"}} />
+          </div>
+          <div className="c1image">
+            <img src={promotion2} alt="banner1" style={{maxWidth: "100%"}}/>
+          </div>
+          <div className="c1image">
+            <img src={promotion3} alt="banner1" style={{maxWidth: "100%"}}/>
+          </div>
       </Carousel>
 
       
