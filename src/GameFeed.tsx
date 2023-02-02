@@ -195,12 +195,10 @@ const GameFeed = (): ReactElement => {
       <br></br>
       <br></br>
 
-<<<<<<< HEAD
       <Box sx={{ borderRadius: '50%', bgcolor: '#cfe8fc', height: '70vh', width: '70vh', mx: 'auto' }}>
       </Box>
-=======
+      
       <Box sx={{ borderRadius: '50%', bgcolor: '#cfe8fc', height: '30vh', width: '30vh', mx: 'auto' }}></Box>
->>>>>>> 038012bfd53c8b8ccb26c60c4639acbfa4d37672
 
       <br />
       <Box sx={{ mr: 'auto' }}>
