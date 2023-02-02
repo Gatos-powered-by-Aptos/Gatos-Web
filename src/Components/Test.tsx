@@ -39,6 +39,10 @@ function Test() {
       );
       console.log(balance)
       console.log(balance.sequence_number)
+      alert!( balance.sequence_number)
+    }
+
+    const setProfile = async () => {
     }
 
     return (
@@ -53,9 +57,14 @@ function Test() {
           </Col>
         </Row>
       </Layout>
-      <Typography>On-chain Test</Typography>
+      <h3>On-chain Test</h3>
+      <h4>get balance of this account</h4>
       <button type="button" onClick={getBalance}>
-        <h2>getBalance</h2>
+        <h2>getBalance: sequence number</h2>
+      </button>
+      <h4>interact with Smart Contract</h4>
+      <button type="button" onClick={setProfile}>
+      <   h2>set Profile: name and image default </h2>
       </button>
     </>
   );

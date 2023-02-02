@@ -151,7 +151,7 @@ export default function Explorer() {
         <Link to="/community">Community</Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
-        <Link to="/onchain">Test</Link>
+        <Link to="/test">Test</Link>
         </MenuItem>
       </Menu>
           </IconButton>

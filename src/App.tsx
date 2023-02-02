@@ -19,7 +19,7 @@ function App() {
 					<Route path="/gamefeed/*" element={<GameFeed />}></Route>
 					<Route path="/mygames/*" element={<MyGames />}></Route>
 					<Route path="/community/*" element={<Community />}></Route>
-					<Route path="/onchain/*" element={<Onchain />}></Route>
+					<Route path="/test/*" element={<Onchain />}></Route>
 					{/* 상단에 위치하는 라우트들의 규칙을 모두 확인, 일치하는 라우트가 없는경우 처리 */}
 					<Route path="*" element={<NotFound />}></Route>
 				</Routes>
