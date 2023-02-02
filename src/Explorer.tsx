@@ -30,6 +30,8 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
+import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design"; 
+import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -214,6 +216,7 @@ export default function Explorer() {
             <MenuIcon/>
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, letterSpacing: 17 }}>GATOS</Typography>
+          <WalletSelector/>
         </Toolbar>
       </AppBar>
       </Container>

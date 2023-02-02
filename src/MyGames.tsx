@@ -63,22 +63,6 @@ export default function Explorer() {
     <div>
     <Box sx={{ flexGrow: 1, backgroundColor:'black' }}>
       <Container maxWidth="xl">
-      <AppBar position="static"
-        sx={{backgroundColor:'black'}}>
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon/>
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, letterSpacing: 17 }}>GATOS</Typography>
-          <WalletSelector />
-        </Toolbar>
-      </AppBar>
       </Container>
       <br></br>
       <br></br>
