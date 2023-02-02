@@ -1,12 +1,17 @@
 # Gatos UI 
 React TS MUI 
 react-router-dom
-Responsive UI
-Aptos TypeScript UI 
+Aptos TypeScript SDK
+Responsive UI로 작업 부탁
 
 ## 개발팀 
+## 작업 분배 
+주원: 전체 작업 서포트
+연우: Explorer, My Games, Community
+유진: Game Feed 
 ### 전체 플로우 참고 레퍼런스
 https://aptos.dev/tutorials/build-e2e-dapp/e2e-dapp-index 
+React Tab 구현: https://prod.velog.io/@fejigu/React-Tab-Component-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0 
 ### 코드 받아서 실행하는 방법 : 모두 npm 통일
 (1) npm install 
 (2) npm start 
