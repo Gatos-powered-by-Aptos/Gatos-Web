@@ -7,7 +7,7 @@ import GameFeed from './Components/GameFeed'
 import Explorer from './Components/Explorer';
 import MyGames from './Components/MyGames';
 import Community from './Components/Community';
-import Onchain from './Components/Test';
+import Onchain from './test/Test';
 
 function App() {
   return (
