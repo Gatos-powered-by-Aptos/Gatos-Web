@@ -43,6 +43,8 @@ import { WalletSelector } from "@aptos-labs/wallet-adapter-ant-design";
 import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
 
 
+import Navbar from '../Navbar/Navbar';
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -91,31 +93,11 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-  >
-    •
-  </Box>
-);
-
-const drawerWidth = 240;
-const navItems = ['Home', 'Explorer', 'My Games', 'Community','B'];
-
 
 export default function Explorer() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
-
-  const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -222,84 +204,16 @@ export default function Explorer() {
   return (
     <div>
     <Box sx={{ flexGrow: 1, backgroundColor:'black'}}>
-      <Container maxWidth="xl">
-      <AppBar position="static"
-        sx={{backgroundColor:'black'}}>
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-            onClick={handleClick}
-          >
-            <MenuIcon sx={{color:'#0ACFFE'}}/>
-            <Menu
-        anchorEl={anchorEl}
-        id="account-menu"
-        open={open}
-        onClose={handleClose}
-        onClick={handleClose}
-        PaperProps={{
-          elevation: 0,
-          sx: {
-            overflow: 'visible',
-            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-            mt: 1.5,
-            '& .MuiAvatar-root': {
-              width: 32,
-              height: 32,
-              ml: -0.5,
-              mr: 1,
-            },
-            '&:before': {
-              content: '""',
-              display: 'block',
-              position: 'absolute',
-              top: 0,
-              right: 14,
-              width: 10,
-              height: 10,
-              bgcolor: 'background.paper',
-              transform: 'translateY(-50%) rotate(45deg)',
-              zIndex: 0,
-            },
-          },
-        }}
-        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-      >
-        <MenuItem onClick={handleClose}>
-        <Link to="/">Home</Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-        <Link to="/gamefeed">GameFeed</Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-        <Link to="/mygames">MyGames</Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-        <Link to="/community">Community</Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-        <Link to="/test">Test</Link>
-        </MenuItem>
-      </Menu>
-          </IconButton>
-          <div>
-            <img src={gatosLogo} alt="logo" width="80vw"/>
-          </div>
-          <Box sx={{width:'500vw'}}></Box>
-          <WalletSelector></WalletSelector>
-        </Toolbar>
-      </AppBar>
-      </Container>
+      <Navbar/>
       <br></br>
       <br></br>
       <br></br>
 
-
+      <Box sx={{
+          display: 'flex',
+          justifyContent: 'center',
+          height:'10%'
+          }}>
       <Carousel>
           <div className="c1image">
             <img src={promotion1} alt="banner1" style={{maxWidth: "100%"}} />
@@ -311,6 +225,7 @@ export default function Explorer() {
             <img src={promotion3} alt="banner1" style={{maxWidth: "100%"}}/>
           </div>
       </Carousel>
+      </Box>
 
       
       <br></br>

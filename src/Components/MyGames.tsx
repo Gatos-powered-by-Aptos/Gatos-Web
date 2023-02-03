@@ -35,6 +35,7 @@ import { Height, Opacity } from '@mui/icons-material';
 import promotion1 from '../assets/images/promotion1.jpeg';
 import promotion2 from '../assets/images/aptosflip.jpeg';
 import promotion4 from '../assets/images/promotion4.jpeg';
+import Navbar from '../Navbar/Navbar';
 
 const NODE_URL = "https://fullnode.devnet.aptoslabs.com";
 const client = new AptosClient(NODE_URL);
@@ -90,79 +91,7 @@ export default function Explorer() {
   return (
     <div>
   <Box sx={{ flexGrow: 1, backgroundColor:'black'}}>
-      <Container maxWidth="xl">
-      <AppBar position="static"
-        sx={{backgroundColor:'black'}}>
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-            onClick={handleClick}
-          >
-            <MenuIcon sx={{color:'#0ACFFE'}}/>
-            <Menu
-        anchorEl={anchorEl}
-        id="account-menu"
-        open={open}
-        onClose={handleClose}
-        onClick={handleClose}
-        PaperProps={{
-          elevation: 0,
-          sx: {
-            overflow: 'visible',
-            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-            mt: 1.5,
-            '& .MuiAvatar-root': {
-              width: 32,
-              height: 32,
-              ml: -0.5,
-              mr: 1,
-            },
-            '&:before': {
-              content: '""',
-              display: 'block',
-              position: 'absolute',
-              top: 0,
-              right: 14,
-              width: 10,
-              height: 10,
-              bgcolor: 'background.paper',
-              transform: 'translateY(-50%) rotate(45deg)',
-              zIndex: 0,
-            },
-          },
-        }}
-        transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-        anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-      >
-        <MenuItem onClick={handleClose}>
-        <Link to="/">Home</Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-        <Link to="/gamefeed">GameFeed</Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-        <Link to="/mygames">MyGames</Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-        <Link to="/community">Community</Link>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-        <Link to="/test">Test</Link>
-        </MenuItem>
-      </Menu>
-          </IconButton>
-          <div>
-            <img src={gatosLogo} alt="logo" width="80vw"/>
-          </div>
-          <Box sx={{width:'500vw'}}></Box>
-          <WalletSelector></WalletSelector>
-        </Toolbar>
-      </AppBar>
-      </Container>
+      <Navbar/>
       <br></br>
       <br></br>
       <br></br>

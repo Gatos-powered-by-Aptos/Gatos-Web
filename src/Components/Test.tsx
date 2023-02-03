@@ -6,9 +6,12 @@ import "@aptos-labs/wallet-adapter-ant-design/dist/index.css";
 import { AptosClient } from "aptos"; 
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { useState, useEffect } from "react";
+import Navbar from "../Navbar/Navbar";
 
 const NODE_URL = "https://fullnode.devnet.aptoslabs.com";
 const client = new AptosClient(NODE_URL);
+
+const moduleAddress =""
 
 function Test() {
     const { account } = useWallet(); 
@@ -42,30 +45,38 @@ function Test() {
       alert!( balance.sequence_number)
     }
 
-    const setProfile = async () => {
-    }
+    const addNewList = async () => {
+      if (!account) return [];
+      // build a transaction payload to be submited
+      const payload = {
+        type: "entry_function_payload",
+        function: `${moduleAddress}::main::create_list`,
+        type_arguments: [],
+        arguments: [],
+      };
+      try {
+        // sign and submit transaction to chain
+        //const response = await signAndSubmitTransaction(payload);
+        // wait for transaction
+        //await client.waitForTransaction(response.hash);
+        setAccountHasList(true);
+      } catch (error: any) {
+        setAccountHasList(false);
+      }
+    };
 
     return (
     <>
-      <Layout>
-        <Row align="middle">
-          <Col span={10} offset={2}>
-            <h1>Gatos</h1>
-          </Col>
-          <Col span={12} style={{ textAlign: "right", paddingRight: "200px" }}>
-            <WalletSelector />
-          </Col>
-        </Row>
-      </Layout>
+      <Navbar/>
       <h3>On-chain Test</h3>
       <h4>get balance of this account</h4>
       <button type="button" onClick={getBalance}>
         <h2>getBalance: sequence number</h2>
       </button>
       <h4>interact with Smart Contract</h4>
-      <button type="button" onClick={setProfile}>
-      <   h2>set Profile: name and image default </h2>
-      </button>
+      <Button onClick={addNewList} block type="primary" style={{ height: "40px", backgroundColor: "#3f67ff" }}>
+        Add new list
+      </Button>
     </>
   );
   }

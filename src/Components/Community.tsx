@@ -1,11 +1,9 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import CssBaseline from '@mui/material/CssBaseline';
 import { styled, alpha } from '@mui/material/styles';
@@ -35,6 +33,7 @@ import { AptosClient } from "aptos";
 import { useWallet } from "@aptos-labs/wallet-adapter-react";
 import { useState, useEffect } from "react";
 import { Tab, Tabs } from '@mui/material';
+import Navbar from '../Navbar/Navbar';
 
 const NODE_URL = "https://fullnode.devnet.aptoslabs.com";
 const client = new AptosClient(NODE_URL);
@@ -316,23 +315,7 @@ export default function Community() {
   return (
     <div>
       <Box sx={{ flexGrow: 1}}>
-          <Container maxWidth="xl">
-              <AppBar position="static">
-                  <Toolbar>
-                      <IconButton
-                          size="large"
-                          edge="start"
-                          color="inherit"
-                          aria-label="menu"
-                          sx={{ mr: 2 }}
-                      >
-                          <MenuIcon />
-                      </IconButton>
-                      <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}></Typography>
-                      <WalletSelector />
-                  </Toolbar>
-              </AppBar>
-          </Container>
+        <Navbar/>
           <br></br>
           <br></br>
           <br></br>

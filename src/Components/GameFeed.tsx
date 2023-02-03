@@ -47,6 +47,7 @@ import Tabs from '@mui/material/Tabs';
 import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import { useTheme } from '@mui/material/styles';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Navbar from '../Navbar/Navbar';
 
 const darkTheme = createTheme({
   palette: {
@@ -207,25 +208,7 @@ const GameFeed = (): ReactElement => {
     
     <Box sx={{ flexGrow: 1, backgroundColor: 'black', height: 'auto', width: 'auto' }}>
     <React.Fragment>
-        <AppBar position='static' sx={{backgroundColor:'black'}}>
-          <Toolbar >
-          <ThemeProvider theme={darkTheme}>
-            <IconButton
-            size="large"
-            edge="start"
-            color="secondary"
-            aria-label="menu"
-            >
-              <MenuIcon/>
-            </IconButton>
-            </ThemeProvider>
-            <div>
-              <img src={gatoslogo} alt="logo" width="80vh" />
-            </div>
-            <Box sx={{ hight: 'auto', width: '500vh' }}></Box>
-          <WalletSelector />
-          </Toolbar>
-        </AppBar>
+       <Navbar/>
         <br></br>
         <br></br>
       
