@@ -18,11 +18,11 @@ Aptos TypeScript SDK </p>
 Aptos Wallet Adapter </p>
 
 ### Components 
-(1) '/': homepage, game explorer
-(2) '/gamefeed': game feed main page 
-(3) '/mygames': my games (user profile) page 
-(4) '/community': community main page 
-(5) '/test': onchain interaction testing page
+(1) '/': homepage, game explorer </p>
+(2) '/gamefeed': game feed main page </p>
+(3) '/mygames': my games (user profile) page </p>
+(4) '/community': community main page </p>
+(5) '/test': onchain interaction testing page </p>
 
 ### Wallet Adapter 
 https://aptos.dev/tutorials/build-e2e-dapp/add-wallet-support 
