@@ -3,7 +3,7 @@
 ## What is Gatos
 
 A Gaming-focused Social Graph Service powered by Aptos network </p>
-2023 Aptos Seoul Hack
+2023 Aptos Seoul Hack </p>
 https://docs.google.com/presentation/d/18TbATBsrb_m-bvVyTz4x1TJFUrjA3ehJ6YgSkAbsuDk/edit?usp=sharing
 
 ## Development
